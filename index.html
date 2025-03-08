@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lukasxmedia.de</title>
+    <style>
+        body { background: #111; color: white; text-align: center; font-family: Arial, sans-serif; padding: 50px; }
+        .hidden { opacity: 0; transition: opacity 1.5s ease-in-out; }
+    </style>
+</head>
+<body>
+    <h1 id="text" class="hidden">Willkommen auf meiner Website!</h1>
+    <img id="image" src="https://via.placeholder.com/300" class="hidden">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => document.getElementById("text").style.opacity = 1, 500);
+            setTimeout(() => document.getElementById("image").style.opacity = 1, 1500);
+        });
+    </script>
+</body>
+</html>
