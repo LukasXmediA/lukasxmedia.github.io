@@ -3,128 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lukasxmedia.de</title>
+    <title>LukasXmediA</title>
     <style>
-        /* Allgemeines Styling */
+        /* Grundlegendes Styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: white;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
             text-align: center;
         }
 
-        /* LukasXmediA Titel (groß) */
+        /* Titel */
         .main-title {
-            font-size: 3em;
-            font-weight: bold;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
+            font-size: 2.5rem;
+            margin-top: 20px;
         }
 
-        /* Animierte Überschrift "Über Mich" */
-        .animated-title {
-            font-size: 2em;
-            font-weight: bold;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid white;
-            width: 0;
-            animation: typing 2s steps(20, end) forwards;
-        }
-
-        /* Container für die Über-mich Sektion */
-        .about-container {
+        /* Über Mich Sektion */
+        .about-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
+            max-width: 600px;
+            margin: 50px auto;
         }
 
-        /* Bild-Styling */
-        .about-image {
-            max-width: 300px;
-            height: auto;
-            margin: 20px;
+        /* Bild über dem Text */
+        .top-image-container {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        /* Großes Bild über dem Über Mich-Text */
+        .top-image {
+            width: 100%;
+            border-radius: 10px;
             opacity: 0;
-            transform: scale(0.8);
-            animation: fadeIn 1.5s ease-in-out forwards 1s;
-            border-radius: 10px;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
-        /* Flexbox für Bild & Text (Desktop) */
+        /* Text & Bild nebeneinander (auf Desktop) */
         .about-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: left;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        /* Animation für LukasXmediA Titel */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Kleineres Bild neben dem Text */
+        .about-image-container {
+            width: 100%;
+            max-width: 250px;
         }
 
-        /* Animation für "Über Mich" */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
-        /* Bild-Einblendung */
-        @keyframes fadeInImage {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        /* Animierte Überschrift */
+        .animated-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
         }
 
-        /* Desktop-Ansicht: Bild neben Text */
+        /* Absatz */
+        p {
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+
+        /* Fade-In-Effekt beim Scrollen */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Anpassung für größere Bildschirme */
         @media (min-width: 768px) {
             .about-content {
                 flex-direction: row;
+                justify-content: center;
+                align-items: center;
                 text-align: left;
             }
-            .about-image {
-                margin-right: 20px;
+
+            .about-text {
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hauptüberschrift "LukasXmediA" -->
+    <!-- Titel -->
     <h1 class="main-title">LukasXmediA</h1>
 
-    <!-- Über Mich Sektion -->
-    <div class="about-container">
-        <h2 class="animated-title">Über Mich</h2>
-        <div class="about-content">
-            <img src="lukasxmedia.github.io/bild.jpg" alt="XmediA.jpg" class="about-image">
-            <p>
-                Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
-                Ich liebe Gaming, besonders Simulatoren und Minecraft.  
-                Nebenbei interessiere ich mich für Technik, Handball und Schlagzeug.  
-                Also, wir sehen uns in nem' Stream´, bis dann!
-            </p>
-        </div>
+    <!-- Erstes Bild über dem Über Mich-Bereich -->
+    <div class="top-image-container">
+        <img src="lukasxmedia.github.io/LukasXmediA TM Logo_.PNG" alt="Top Bild" class="top-image fade-in-on-scroll">
     </div>
+
+    <!-- Über Mich Sektion -->
+    <section class="about-section">
+        <div class="about-content">
+            <!-- Bild neben dem Text (auf Mobile über dem Text) -->
+            <div class="about-image-container">
+                <img src="lukasxmedia.github.io/XmediA.jpg" alt="Über Mich Bild" class="about-image fade-in-on-scroll">
+            </div>
+
+            <!-- Text -->
+            <div class="about-text">
+                <h2 class="animated-title fade-in-on-scroll">Über Mich</h2>
+                <p class="fade-in-on-scroll">
+                    Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
+                    Ich liebe Gaming, besonders Simulatoren und Minecraft.  
+                    Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.
+                    Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".fade-in-on-scroll");
+
+            function checkVisibility() {
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        element.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkVisibility);
+            checkVisibility(); // Falls Elemente direkt sichtbar sind
+        });
+    </script>
 
 </body>
 </html>
-
