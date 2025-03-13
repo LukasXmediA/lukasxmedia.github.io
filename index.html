@@ -8,19 +8,19 @@
         /* Stil für das Geschäfts-Textfeld */
         .business-box {
             background-color: rgba(0, 0, 0, 0.8); /* Dunkler Hintergrund mit Transparenz */
-            color: white; /* Weißer Text */
-            text-align: center; /* Zentrierter Text */
+            color: white;
+            text-align: center;
             padding: 15px;
-            border-radius: 10px; /* Abgerundete Ecken */
+            border-radius: 10px;
             width: 90%;
             max-width: 400px;
-            margin: 20px auto; /* Abstand nach oben/unten + zentriert */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+            margin: 20px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Stil für die E-Mail-Adresse */
         .business-box a {
-            color: #39FF14; /* Neongrün */
+            color: #39FF14; /* Neongrün für bessere Sichtbarkeit */
             text-decoration: none;
             font-weight: bold;
         }
@@ -45,74 +45,43 @@
             margin-top: 20px;
         }
 
-        /* Über Mich Sektion */
-        .about-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 600px;
-            margin: 50px auto;
-        }
-
-        /* Bild über dem Text – jetzt perfekt mittig */
-        .top-image-container {
-            width: 100%;
-            max-width: 450px;
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        /* Großes Bild über dem Über Mich-Text */
-        .top-image {
-            width: 100%;
+        /* Über Mich Box */
+        .about-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
             border-radius: 10px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Text & Bild nebeneinander (auf Desktop) */
+        /* Bild und Text nebeneinander auf größeren Bildschirmen */
         .about-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            margin-top: 20px;
         }
 
-        /* Kleineres Bild neben dem Text */
-        .about-image-container {
-            width: 100%;
-            max-width: 250px;
-        }
-
+        /* Stil für das Bild */
         .about-image {
             width: 100%;
+            max-width: 250px;
             border-radius: 10px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
-        /* Animierte Überschrift */
-        .animated-title {
-            font-size: 2rem;
+        /* Überschrift in der Box */
+        .about-box h2 {
             margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
         }
 
         /* Absatz */
-        p {
+        .about-box p {
             font-size: 1.2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
-        /* Fade-In-Effekt beim Scrollen */
+        /* Fade-In Effekt */
         .fade-in-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -123,20 +92,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Anpassung für größere Bildschirme */
-        @media (min-width: 768px) {
-            .about-content {
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                text-align: left;
-            }
-
-            .about-text {
-                max-width: 300px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -144,50 +99,24 @@
     <!-- Titel -->
     <h1 class="main-title">LukasXmediA</h1>
 
-    <!-- Erstes Bild über dem Über Mich-Bereich -->
-    <div class="top-image-container">
-        <img src="LukasXmediA TM Logo_.PNG" alt="Top Bild" class="top-image fade-in-on-scroll">
-    </div>
-
     <!-- Über Mich Sektion -->
-    <section class="about-section">
-        <div class="about-box fade-in-on-scroll">
-    <!-- Bild -->
-    <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image">
-    
-    <!-- Text -->
-    <div class="about-text">
+    <div class="about-box fade-in-on-scroll">
         <h2>Über Mich</h2>
-        <p>
-            Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
-            Ich liebe Gaming, besonders Simulatoren und Minecraft.  
-            Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.  
-            Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
-        </p>
-    </div>
-</div>
-            <!-- Bild neben dem Text (auf Mobile über dem Text) -->
-            <div class="about-image-container">
-                <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image fade-in-on-scroll">
-            </div>
-
-            <!-- Text -->
-            <div class="about-text">
-                <h2 class="animated-title fade-in-on-scroll">Über Mich</h2>
-                <p class="fade-in-on-scroll">
-                    Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
-                    Ich liebe Gaming, besonders Simulatoren und Minecraft.  
-                    Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.
-                    Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
-                </p>
-            </div>
+        <div class="about-content">
+            <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image">
+            <p>
+                Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
+                Ich liebe Gaming, besonders Simulatoren und Minecraft.  
+                Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.  
+                Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
+            </p>
         </div>
-    </section>
+    </div>
 
     <!-- Geschäftsbereich -->
     <div class="business-box fade-in-on-scroll">
         <h2>Geschäftliches</h2>
-      <p><a href="mailto:business@lukasxmedia.de">business@lukasxmedia.de</a></p>
+        <p><a href="mailto:business@lukasxmedia.de">business@lukasxmedia.de</a></p>
     </div>
 
     <script>
