@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukasXmediA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
     <style>
         /* Stil für das Geschäfts-Textfeld */
         .business-box {
@@ -18,14 +19,15 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Stil für die E-Mail-Adresse */
-        .business-box a {
+        /* Stil für die Social Media-Links */
+        .social-media a {
             color: #39FF14; /* Neongrün für bessere Sichtbarkeit */
             text-decoration: none;
-            font-weight: bold;
+            font-size: 2rem;
+            margin: 0 10px;
         }
 
-        .business-box a:hover {
+        .social-media a:hover {
             text-decoration: underline;
         }
 
@@ -113,13 +115,21 @@
         </div>
     </div>
 
-    <!-- Geschäftsbereich -->
+    <!-- Social Media Links -->
     <div class="business-box fade-in-on-scroll">
         <h2>Social Media-Links</h2>
-    <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram"> </a>
-   <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch"> </a>
+        <div class="social-media">
+            <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i> <!-- Instagram Icon -->
+            </a>
+            <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch">
+                <i class="fab fa-twitch"></i> <!-- Twitch Icon -->
+            </a>
+        </div>
     </div>
-<p>©LukasXmediA™</p>
+
+    <p>©LukasXmediA™</p>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const elements = document.querySelectorAll(".fade-in-on-scroll");
