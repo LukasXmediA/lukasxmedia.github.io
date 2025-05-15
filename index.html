@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-   <head>
-  
-      <!-- Favicon für Browser-Tabs -->
-  <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon">
-  <link rel="shortcut icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon">
-      
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LukasXmediA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    /> <!-- Font Awesome CDN -->
     <style>
         /* Stil für das Geschäfts-Textfeld */
         .business-box {
-            background-color: rgba(0, 0, 0, 0.8); /* Dunkler Hintergrund mit Transparenz */
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 15px;
@@ -27,7 +26,7 @@
 
         /* Stil für die Social Media-Links */
         .social-media a {
-            color: #39FF14; /* Neongrün für bessere Sichtbarkeit */
+            color: #39FF14; /* Neongrün */
             text-decoration: none;
             font-size: 2rem;
             margin: 0 10px;
@@ -100,9 +99,89 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Setup Box Styling */
+        .setup-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            color: #39FF14;
+            text-align: left;
+            display: none; /* Start versteckt */
+        }
+
+        .setup-box h2 {
+            color: #39FF14;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .setup-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .setup-box li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Burger Menü Styling */
+        .burger-menu {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .burger-menu div {
+            background-color: #39FF14;
+            height: 4px;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Burger animiert, wenn aktiv */
+        .burger-menu.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger-menu.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Responsive: Auf größeren Bildschirmen nebeneinander im About */
+        @media (min-width: 600px) {
+            .about-content {
+                flex-direction: row;
+                justify-content: center;
+                text-align: left;
+            }
+            .about-box p {
+                max-width: 60%;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Burger Menü -->
+    <div id="burger" class="burger-menu" title="Setup anzeigen/verbergen" aria-label="Setup Menü">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
     <!-- Titel -->
     <h1 class="main-title">LukasXmediA</h1>
@@ -111,11 +190,11 @@
     <div class="about-box fade-in-on-scroll">
         <h2>Über Mich</h2>
         <div class="about-content">
-            <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image">
+            <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image" />
             <p>
-                Hey! Ich bin Lukas, auch bekannt als LukasXmediA.  
-                Ich liebe Gaming, besonders Simulatoren und Minecraft.  
-                Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.  
+                Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br />
+                Ich liebe Gaming, besonders Simulatoren und Minecraft.<br />
+                Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br />
                 Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
             </p>
         </div>
@@ -125,23 +204,44 @@
     <div class="business-box fade-in-on-scroll">
         <h2>Social Media-Links</h2>
         <div class="social-media">
-            <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i> <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch">
-                <i class="fab fa-twitch"></i> <!-- Twitch Icon -->
+            <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch" rel="noopener noreferrer">
+                <i class="fab fa-twitch"></i>
             </a>
         </div>
+    </div>
+
+    <!-- Setup Bereich -->
+    <div class="setup-box fade-in-on-scroll" id="setupBox" aria-live="polite" aria-hidden="true" role="region" tabindex="-1">
+        <h2>Mein Setup</h2>
+        <ul>
+            <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070, weitere Specs)</li>
+            <li><strong>Maus:</strong> Razer Naga Trinity</li>
+            <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
+            <li><strong>Headset:</strong> Razer Kraken V3</li>
+            <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
+            <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
+            <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
+            <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
+            <li><strong>Shifter (Kupplung):</strong> Thrustmaster TH8S</li>
+            <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
+        </ul>
+        <p style="color: #888; font-size: 0.9rem; margin-top: 15px; text-align: center;">
+            Ich erhalte für die Nennung keines dieser Produkte Geld.
+        </p>
     </div>
 
     <p>©LukasXmediA™</p>
 
     <script>
+        // Fade-in Effekt für Sektionen
         document.addEventListener("DOMContentLoaded", function () {
             const elements = document.querySelectorAll(".fade-in-on-scroll");
 
             function checkVisibility() {
-                elements.forEach(element => {
+                elements.forEach((element) => {
                     const rect = element.getBoundingClientRect();
                     if (rect.top < window.innerHeight - 100) {
                         element.classList.add("visible");
@@ -150,9 +250,27 @@
             }
 
             window.addEventListener("scroll", checkVisibility);
-            checkVisibility(); // Falls Elemente direkt sichtbar sind
+            checkVisibility();
+        });
+
+        // Burger Menü Toggle Setup Box
+        const burger = document.getElementById("burger");
+        const setupBox = document.getElementById("setupBox");
+
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("active");
+
+            if (setupBox.style.display === "block") {
+                setupBox.style.display = "none";
+                setupBox.setAttribute("aria-hidden", "true");
+                setupBox.setAttribute("tabindex", "-1");
+            } else {
+                setupBox.style.display = "block";
+                setupBox.setAttribute("aria-hidden", "false");
+                setupBox.removeAttribute("tabindex");
+                setupBox.focus();
+            }
         });
     </script>
-
 </body>
 </html>
