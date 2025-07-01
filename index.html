@@ -1,279 +1,271 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LukasXmediA</title>
-    <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    /> <!-- Font Awesome CDN -->
-    <style>
-        /* Stil für das Geschäfts-Textfeld */
-        .business-box {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            margin: 20px auto;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LukasXmediA</title>
+  <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-        /* Stil für die Social Media-Links */
-        .social-media a {
-            color: #39FF14; /* Neongrün */
-            text-decoration: none;
-            font-size: 2rem;
-            margin: 0 10px;
-        }
+  <style>
+    /* Schriftarten */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;400&display=swap');
 
-        .social-media a:hover {
-            text-decoration: underline;
-        }
+    html {
+      scroll-behavior: smooth; /* Sanftes Scrollen */
+    }
 
-        /* Grundlegendes Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #ffffff;
-            text-align: center;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top left, #1e1e1e, #121212);
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.6;
+    }
 
-        /* Titel */
-        .main-title {
-            font-size: 2.5rem;
-            margin-top: 20px;
-        }
+    .main-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #39FF14;
+      margin-top: 40px;
+    }
 
-        /* Über Mich Box */
-        .about-box {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            margin: 20px auto;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .section-box {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
 
-        /* Bild und Text nebeneinander auf größeren Bildschirmen */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
+    .section-box h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #39FF14;
+    }
 
-        /* Stil für das Bild */
-        .about-image {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-        }
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
 
-        /* Überschrift in der Box */
-        .about-box h2 {
-            margin-bottom: 10px;
-        }
+    .about-image {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+    }
 
-        /* Absatz */
-        .about-box p {
-            font-size: 1.2rem;
-        }
+    .social-media a {
+      color: #39FF14;
+      text-decoration: none;
+      font-size: 2.2rem;
+      margin: 0 12px;
+      transition: color 0.3s ease;
+    }
 
-        /* Fade-In Effekt */
-        .fade-in-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-        }
+    .social-media a:hover {
+      color: #66ff66;
+    }
 
-        .fade-in-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .setup-box {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 700px;
+      margin: 30px auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      color: #39FF14;
+      text-align: left;
+      display: none;
+    }
 
-        /* Setup Box Styling */
-        .setup-box {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            color: #39FF14;
-            text-align: left;
-            display: none; /* Start versteckt */
-        }
+    .setup-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .setup-box h2 {
-            color: #39FF14;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+    .setup-box ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .setup-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
+    .setup-box li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
 
-        .setup-box li {
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
+    .burger-menu {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      width: 32px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1000;
+    }
 
-        /* Burger Menü Styling */
-        .burger-menu {
-            position: fixed;
-            top: 15px;
-            right: 20px;
-            width: 30px;
-            height: 25px;
-            cursor: pointer;
-            z-index: 1000;
-        }
+    .burger-menu div {
+      background-color: #39FF14;
+      height: 4px;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .burger-menu div {
-            background-color: #39FF14;
-            height: 4px;
-            margin: 5px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
+    .burger-menu.active div:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
 
-        /* Burger animiert, wenn aktiv */
-        .burger-menu.active div:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+    .burger-menu.active div:nth-child(2) {
+      opacity: 0;
+    }
 
-        .burger-menu.active div:nth-child(2) {
-            opacity: 0;
-        }
+    .burger-menu.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
 
-        .burger-menu.active div:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+    .fade-in-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
 
-        /* Responsive: Auf größeren Bildschirmen nebeneinander im About */
-        @media (min-width: 600px) {
-            .about-content {
-                flex-direction: row;
-                justify-content: center;
-                text-align: left;
-            }
-            .about-box p {
-                max-width: 60%;
-            }
-        }
-    </style>
+    .fade-in-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      margin-top: 50px;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 600px) {
+      .about-content {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+      }
+
+      .section-box p {
+        max-width: 60%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Burger Menü -->
-    <div id="burger" class="burger-menu" title="Setup anzeigen/verbergen" aria-label="Setup Menü">
-        <div></div>
-        <div></div>
-        <div></div>
+  <!-- Burger Menü -->
+  <div id="burger" class="burger-menu" title="Setup anzeigen/verbergen" aria-label="Setup Menü">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Titel -->
+  <h1 class="main-title">LukasXmediA</h1>
+
+  <!-- Über Mich Sektion -->
+  <div class="section-box fade-in-on-scroll">
+    <h2>Über Mich</h2>
+    <div class="about-content">
+      <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image" />
+      <p>
+        Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br />
+        Ich liebe Gaming, besonders Simulatoren und Minecraft.<br />
+        Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br />
+        Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
+      </p>
     </div>
+  </div>
 
-    <!-- Titel -->
-    <h1 class="main-title">LukasXmediA</h1>
-
-    <!-- Über Mich Sektion -->
-    <div class="about-box fade-in-on-scroll">
-        <h2>Über Mich</h2>
-        <div class="about-content">
-            <img src="XmediA.jpg" alt="Über Mich Bild" class="about-image" />
-            <p>
-                Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br />
-                Ich liebe Gaming, besonders Simulatoren und Minecraft.<br />
-                Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br />
-                Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
-            </p>
-        </div>
+  <!-- Social Media Links -->
+  <div class="section-box fade-in-on-scroll">
+    <h2>Social Media-Links</h2>
+    <div class="social-media">
+      <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch" rel="noopener noreferrer">
+        <i class="fab fa-twitch"></i>
+      </a>
+      <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>
+      </a>
     </div>
+  </div>
 
-    <!-- Social Media Links -->
-    <div class="business-box fade-in-on-scroll">
-        <h2>Social Media-Links</h2>
-        <div class="social-media">
-            <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch" rel="noopener noreferrer">
-                <i class="fab fa-twitch"></i>
-            </a>
-            <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube" rel="noopener noreferrer">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-    </div>
+  <!-- Setup Bereich -->
+  <div class="setup-box fade-in-on-scroll" id="setupBox" aria-live="polite" aria-hidden="true" role="region" tabindex="-1">
+    <h2>Mein Setup</h2>
+    <ul>
+      <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
+      <li><strong>Maus:</strong> Razer Naga Trinity</li>
+      <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
+      <li><strong>Headset:</strong> Razer Kraken V3</li>
+      <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
+      <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
+      <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
+      <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
+      <li><strong>Shifter (Kupplung):</strong> Thrustmaster TH8S</li>
+      <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
+    </ul>
+    <p style="color: #888; font-size: 0.9rem; margin-top: 15px; text-align: center;">
+      Ich erhalte für die Nennung keines dieser Produkte Geld.
+    </p>
+  </div>
 
-    <!-- Setup Bereich -->
-    <div class="setup-box fade-in-on-scroll" id="setupBox" aria-live="polite" aria-hidden="true" role="region" tabindex="-1">
-        <h2>Mein Setup</h2>
-        <ul>
-            <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
-            <li><strong>Maus:</strong> Razer Naga Trinity</li>
-            <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
-            <li><strong>Headset:</strong> Razer Kraken V3</li>
-            <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
-            <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
-            <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
-            <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
-            <li><strong>Shifter (Kupplung):</strong> Thrustmaster TH8S</li>
-            <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
-        </ul>
-        <p style="color: #888; font-size: 0.9rem; margin-top: 15px; text-align: center;">
-            Ich erhalte für die Nennung keines dieser Produkte Geld.
-        </p>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>© LukasXmediA™</p>
+  </footer>
 
-    <p>©LukasXmediA™</p>
+  <!-- JavaScript für Scroll und Burger Menü -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll(".fade-in-on-scroll");
 
-    <script>
-        // Fade-in Effekt für Sektionen
-        document.addEventListener("DOMContentLoaded", function () {
-            const elements = document.querySelectorAll(".fade-in-on-scroll");
-
-            function checkVisibility() {
-                elements.forEach((element) => {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 100) {
-                        element.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", checkVisibility);
-            checkVisibility();
+      function checkVisibility() {
+        elements.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            element.classList.add("visible");
+          }
         });
+      }
 
-        // Burger Menü Toggle Setup Box
-        const burger = document.getElementById("burger");
-        const setupBox = document.getElementById("setupBox");
+      window.addEventListener("scroll", checkVisibility);
+      checkVisibility();
+    });
 
-        burger.addEventListener("click", () => {
-            burger.classList.toggle("active");
+    // Burger Menü Toggle Setup Box
+    const burger = document.getElementById("burger");
+    const setupBox = document.getElementById("setupBox");
 
-            if (setupBox.style.display === "block") {
-                setupBox.style.display = "none";
-                setupBox.setAttribute("aria-hidden", "true");
-                setupBox.setAttribute("tabindex", "-1");
-            } else {
-                setupBox.style.display = "block";
-                setupBox.setAttribute("aria-hidden", "false");
-                setupBox.removeAttribute("tabindex");
-                setupBox.focus();
-            }
-        });
-    </script>
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+
+      if (setupBox.style.display === "block") {
+        setupBox.style.display = "none";
+        setupBox.setAttribute("aria-hidden", "true");
+        setupBox.setAttribute("tabindex", "-1");
+      } else {
+        setupBox.style.display = "block";
+        setupBox.setAttribute("aria-hidden", "false");
+        setupBox.removeAttribute("tabindex");
+        setupBox.focus();
+      }
+    });
+  </script>
 </body>
 </html>
