@@ -118,7 +118,7 @@
       color: #666;
     }
 
-    /* ScrollReveal vorbereiten */
+    /* ScrollReveal */
     .fade-in-on-scroll {
       opacity: 0;
       transform: translateY(30px);
@@ -128,14 +128,6 @@
     .fade-in-on-scroll.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    /* Walnussrahmen */
-    .wood-frame {
-      border: 4px solid #5b3923;
-      border-radius: 12px;
-      padding: 10px;
-      background-color: #1a1a1a;
     }
 
     @media (min-width: 768px) {
@@ -154,7 +146,7 @@
   <div class="container">
 
     <!-- Über Mich -->
-    <section class="about-box fade-in-on-scroll wood-frame">
+    <section class="about-box fade-in-on-scroll">
       <img src="XmediA.jpg" alt="Über Mich Bild" />
       <div>
         <h2>Über Mich</h2>
@@ -168,7 +160,7 @@
     </section>
 
     <!-- Was mache ich -->
-    <section class="what-i-do fade-in-on-scroll wood-frame">
+    <section class="what-i-do fade-in-on-scroll">
       <h2>Was ich mache</h2>
       <p>
         Als Creator teile ich meine Leidenschaft für Gaming, Technik, Fotografie, Drums und DJing.
@@ -177,7 +169,7 @@
     </section>
 
     <!-- Setup -->
-    <section class="setup-box fade-in-on-scroll wood-frame">
+    <section class="setup-box fade-in-on-scroll">
       <h2>Mein Setup</h2>
       <ul>
         <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
@@ -205,10 +197,10 @@
 
   <!-- Footer -->
   <footer>
-    ©LukasXmediA™
+    © LukasXmediA™
   </footer>
 
-  <!-- ScrollReveal -->
+  <!-- ScrollReveal Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const observer = new IntersectionObserver((entries) => {
