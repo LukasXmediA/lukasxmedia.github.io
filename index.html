@@ -5,86 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LukasXmediA</title>
   <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    html {
+    /* Grunddesign */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: #ffffff;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+      padding: 40px 20px;
       text-align: center;
     }
 
-    h1, h2 {
+    header h1 {
+      font-size: 3rem;
       color: #39FF14;
+      margin: 0;
     }
 
-    .main-title {
-      font-size: 2.5rem;
-      margin-top: 30px;
-      margin-bottom: 10px;
+    /* Sektionen */
+    section {
+      background: rgba(255, 255, 255, 0.03);
+      margin: 40px 0;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      padding: 30px;
+      transition: all 0.3s ease;
     }
 
-    .section-box {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 25px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 700px;
-      margin: 30px auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .section-box img {
-      max-width: 250px;
-      border-radius: 10px;
+    section h2 {
+      color: #39FF14;
       margin-bottom: 15px;
     }
 
-    .section-box p {
-      font-size: 1.2rem;
+    /* Über Mich */
+    .about-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-box img {
+      max-width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Was mache ich */
+    .what-i-do p {
+      font-size: 1.1rem;
       line-height: 1.6;
     }
 
-    /* Setup List */
-    .setup-list {
-      text-align: left;
-      padding-left: 0;
+    /* Setup */
+    .setup-box ul {
       list-style: none;
+      padding: 0;
     }
 
-    .setup-list li {
+    .setup-box li {
       margin-bottom: 10px;
       font-size: 1.1rem;
     }
 
-    /* Social Media Icons unten */
-    .social-media {
-      margin-top: 40px;
+    .disclaimer {
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 10px;
     }
 
-    .social-media a {
+    /* Social Media Leiste */
+    .social-bar {
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .social-bar a {
       color: #39FF14;
-      text-decoration: none;
-      font-size: 2rem;
-      margin: 0 12px;
-      transition: transform 0.2s ease;
+      font-size: 1.6rem;
+      transition: transform 0.3s;
     }
 
-    .social-media a:hover {
+    .social-bar a:hover {
       transform: scale(1.2);
     }
 
-    /* Fade-In Effekt */
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      background-color: #1a1a1a;
+      color: #666;
+    }
+
+    /* ScrollReveal vorbereiten */
     .fade-in-on-scroll {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
+      transition: opacity 1s ease, transform 1s ease;
     }
 
     .fade-in-on-scroll.visible {
@@ -92,103 +130,97 @@
       transform: translateY(0);
     }
 
-    /* Responsive Text links */
-    @media (min-width: 768px) {
-      .section-box p {
-        text-align: left;
-      }
+    /* Walnussrahmen */
+    .wood-frame {
+      border: 4px solid #5b3923;
+      border-radius: 12px;
+      padding: 10px;
+      background-color: #1a1a1a;
     }
 
-    footer {
-      margin: 40px auto 20px;
-      font-size: 0.9rem;
-      color: #888;
+    @media (min-width: 768px) {
+      .about-box {
+        flex-direction: row;
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>LukasXmediA</h1>
+  </header>
 
-  <h1 class="main-title">LukasXmediA</h1>
+  <div class="container">
 
-  <!-- Über Mich -->
-  <div class="section-box fade-in-on-scroll">
-    <h2>Über Mich</h2>
-    <img src="XmediA.jpg" alt="Über Mich Bild">
-    <p>
-      Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
-      Ich liebe Gaming, besonders Simulatoren und Minecraft.<br>
-      Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
-      Wir sehen uns dann mal vielleicht in nem Stream – bis dann!
-    </p>
+    <!-- Über Mich -->
+    <section class="about-box fade-in-on-scroll wood-frame">
+      <img src="XmediA.jpg" alt="Über Mich Bild" />
+      <div>
+        <h2>Über Mich</h2>
+        <p>
+          Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
+          Ich liebe Gaming, besonders Simulatoren und Minecraft.<br>
+          Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+          Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
+        </p>
+      </div>
+    </section>
+
+    <!-- Was mache ich -->
+    <section class="what-i-do fade-in-on-scroll wood-frame">
+      <h2>Was ich mache</h2>
+      <p>
+        Als Creator teile ich meine Leidenschaft für Gaming, Technik, Fotografie, Drums und DJing.
+        Ob auf YouTube, Twitch oder Instagram – ich möchte kreativ sein, unterhalten und meine Projekte mit der Welt teilen.
+      </p>
+    </section>
+
+    <!-- Setup -->
+    <section class="setup-box fade-in-on-scroll wood-frame">
+      <h2>Mein Setup</h2>
+      <ul>
+        <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
+        <li><strong>Maus:</strong> Razer Naga Trinity</li>
+        <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
+        <li><strong>Headset:</strong> Razer Kraken V3</li>
+        <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
+        <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
+        <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
+        <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
+        <li><strong>Shifter:</strong> Thrustmaster TH8S</li>
+        <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
+      </ul>
+      <p class="disclaimer">Ich erhalte für die Nennung keines dieser Produkte Geld.</p>
+    </section>
+
   </div>
 
-  <!-- Was ich mache -->
-  <div class="section-box fade-in-on-scroll">
-    <h2>Was ich mache</h2>
-    <p>
-      Ich bin Content Creator mit Fokus auf Gaming, Musik und Technik.  
-      In meinen Inhalten geht’s um immersive Simulatoren, kreative Minecraft-Bauten, DJ-Experimente  
-      und professionell produzierte Videos.  
-      Aktuell experimentiere ich auch mit Live2D, Fotografie und Setups.
-    </p>
-  </div>
-
-  <!-- Setup -->
-  <div class="section-box fade-in-on-scroll">
-    <h2>Mein Setup</h2>
-    <ul class="setup-list">
-      <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
-      <li><strong>Maus:</strong> Razer Naga Trinity</li>
-      <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
-      <li><strong>Headset:</strong> Razer Kraken V3</li>
-      <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
-      <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
-      <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
-      <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
-      <li><strong>Shifter (Kupplung):</strong> Thrustmaster TH8S</li>
-      <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
-    </ul>
-    <p style="color: #888; font-size: 0.9rem; text-align: center; margin-top: 10px;">
-      Ich erhalte für die Nennung keines dieser Produkte Geld.
-    </p>
-  </div>
-
-  <!-- Social Media (frei unten platziert) -->
-  <div class="social-media fade-in-on-scroll">
-    <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.twitch.com/lukasxmedia1" target="_blank" title="Twitch" rel="noopener noreferrer">
-      <i class="fab fa-twitch"></i>
-    </a>
-    <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube" rel="noopener noreferrer">
-      <i class="fab fa-youtube"></i>
-    </a>
+  <!-- Social Media Bar -->
+  <div class="social-bar">
+    <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.twitch.tv/lukasxmedia1" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+    <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
   </div>
 
   <!-- Footer -->
   <footer>
-    © LukasXmediA™
+    ©LukasXmediA™
   </footer>
 
-  <!-- ScrollReveal Script -->
+  <!-- ScrollReveal -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const elements = document.querySelectorAll(".fade-in-on-scroll");
-
-      const revealOnScroll = () => {
-        elements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 100) {
-            el.classList.add("visible");
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
           }
         });
-      };
+      }, { threshold: 0.1 });
 
-      window.addEventListener("scroll", revealOnScroll);
-      revealOnScroll(); // Initial
+      document.querySelectorAll(".fade-in-on-scroll").forEach(el => observer.observe(el));
     });
   </script>
-
 </body>
 </html>
