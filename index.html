@@ -7,13 +7,20 @@
   <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* Grunddesign */
+    :root {
+      --accent: #39FF14;
+      --bg: #121212;
+      --card-bg: rgba(255,255,255,0.03);
+      --hover-glow: 0 0 10px var(--accent);
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
+      background-color: var(--bg);
       color: #f0f0f0;
       scroll-behavior: smooth;
+      cursor: none;
     }
 
     .container {
@@ -22,35 +29,40 @@
       padding: 20px;
     }
 
-    /* Header */
     header {
       background: linear-gradient(to right, #1a1a1a, #2c2c2c);
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     header h1 {
-      font-size: 3rem;
-      color: #39FF14;
+      font-size: 3.5rem;
+      color: var(--accent);
       margin: 0;
+      z-index: 1;
+      position: relative;
     }
 
-    /* Sektionen */
     section {
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--card-bg);
       margin: 40px 0;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.4);
       padding: 30px;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 0 20px var(--accent);
     }
 
     section h2 {
-      color: #39FF14;
+      color: var(--accent);
       margin-bottom: 15px;
     }
 
-    /* Über Mich */
     .about-box {
       display: flex;
       flex-direction: column;
@@ -61,16 +73,16 @@
     .about-box img {
       max-width: 200px;
       border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--hover-glow);
     }
 
-    /* Was mache ich */
-    .what-i-do p {
+    .what-i-do p,
+    .setup-box li,
+    .about-box p {
       font-size: 1.1rem;
       line-height: 1.6;
     }
 
-    /* Setup */
     .setup-box ul {
       list-style: none;
       padding: 0;
@@ -78,7 +90,6 @@
 
     .setup-box li {
       margin-bottom: 10px;
-      font-size: 1.1rem;
     }
 
     .disclaimer {
@@ -88,7 +99,6 @@
       margin-top: 10px;
     }
 
-    /* Social Media Leiste */
     .social-bar {
       position: fixed;
       left: 10px;
@@ -100,16 +110,15 @@
     }
 
     .social-bar a {
-      color: #39FF14;
+      color: var(--accent);
       font-size: 1.6rem;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .social-bar a:hover {
-      transform: scale(1.2);
+      transform: scale(1.3);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px 0;
@@ -118,7 +127,6 @@
       color: #666;
     }
 
-    /* ScrollReveal */
     .fade-in-on-scroll {
       opacity: 0;
       transform: translateY(30px);
@@ -130,6 +138,19 @@
       transform: translateY(0);
     }
 
+    /* Custom Cursor */
+    .cursor {
+      width: 25px;
+      height: 25px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.1s ease;
+      transform: translate(-50%, -50%);
+    }
+
     @media (min-width: 768px) {
       .about-box {
         flex-direction: row;
@@ -139,27 +160,28 @@
   </style>
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+
   <header>
     <h1>LukasXmediA</h1>
   </header>
 
   <div class="container">
 
-    <!-- Über Mich -->
     <section class="about-box fade-in-on-scroll">
       <img src="XmediA.jpg" alt="Über Mich Bild" />
       <div>
         <h2>Über Mich</h2>
         <p>
-          Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
-          Ich liebe Gaming, besonders Simulatoren und Minecraft.<br>
-          Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+          Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br />
+          Ich liebe Gaming, besonders Simulatoren und Story Games.<br />
+          Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br />
           Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
         </p>
       </div>
     </section>
 
-    <!-- Was mache ich -->
     <section class="what-i-do fade-in-on-scroll">
       <h2>Was ich mache</h2>
       <p>
@@ -168,7 +190,6 @@
       </p>
     </section>
 
-    <!-- Setup -->
     <section class="setup-box fade-in-on-scroll">
       <h2>Mein Setup</h2>
       <ul>
@@ -185,7 +206,6 @@
       </ul>
       <p class="disclaimer">Ich erhalte für die Nennung keines dieser Produkte Geld.</p>
     </section>
-
   </div>
 
   <!-- Social Media Bar -->
@@ -195,9 +215,8 @@
     <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
   </div>
 
-  <!-- Footer -->
   <footer>
-    © LukasXmediA™
+    ©LukasXmediA™
   </footer>
 
   <!-- ScrollReveal Script -->
@@ -212,6 +231,13 @@
       }, { threshold: 0.1 });
 
       document.querySelectorAll(".fade-in-on-scroll").forEach(el => observer.observe(el));
+    });
+
+    // Cursor-Effekt
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
   </script>
 </body>
