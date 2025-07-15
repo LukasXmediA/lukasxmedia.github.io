@@ -6,20 +6,25 @@ body {
 }
 
 header {
+  text-align: center;
   background: linear-gradient(to right, #1a1a1a, #2c2c2c);
   padding: 20px;
-  text-align: center;
 }
 
-header h1 {
-  font-size: 2.5rem;
+header h1 a {
   color: #39FF14;
-  margin: 0;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
 }
 
 nav {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 nav a {
@@ -28,57 +33,52 @@ nav a {
   margin: 0 10px;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-.header-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  display: block;
-}
-
-.container {
+main {
   max-width: 900px;
   margin: auto;
   padding: 20px;
 }
 
-h2 {
-  color: #39FF14;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
+section {
+  margin-bottom: 40px;
 }
 
 .timeline {
   border-left: 3px solid #39FF14;
+  margin: 20px 0;
   padding-left: 20px;
-  margin: 40px 0;
 }
 
-.timeline-event {
+.timeline-item {
+  position: relative;
+  margin: 20px 0;
+  padding-left: 10px;
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  margin-bottom: 20px;
+  transform: translateX(20px);
+  animation: fadeInLeft 1s forwards;
 }
 
-.timeline-event.visible {
-  opacity: 1;
-  transform: translateY(0);
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #39FF14;
+  border-radius: 50%;
 }
 
-.timeline-event h3 {
-  margin: 0 0 5px;
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 footer {
   text-align: center;
   padding: 20px;
   background: #1a1a1a;
-  color: #666;
+  color: #aaa;
 }
