@@ -16,13 +16,6 @@ header h1 a {
   text-decoration: none;
 }
 
-.header-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
 nav {
   margin-top: 15px;
 }
@@ -31,6 +24,21 @@ nav a {
   color: #39FF14;
   text-decoration: none;
   margin: 0 10px;
+}
+
+.header-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.content-image {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 12px;
 }
 
 main {
@@ -56,6 +64,8 @@ section {
   opacity: 0;
   transform: translateX(20px);
   animation: fadeInLeft 1s forwards;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
 }
 
 .timeline-item::before {
