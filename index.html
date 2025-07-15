@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LukasXmediA</title>
   <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --accent: #39FF14;
@@ -33,15 +33,28 @@
       padding: 60px 20px;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
     header h1 {
       font-size: 3.5rem;
       color: var(--accent);
       margin: 0;
-      z-index: 1;
-      position: relative;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     section {
@@ -51,11 +64,6 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.4);
       padding: 30px;
       transition: all 0.4s ease;
-    }
-
-    /* Hover-Glow nur auf Desktop */
-    html:not(.touch) section:hover {
-      box-shadow: 0 0 20px var(--accent);
     }
 
     section h2 {
@@ -76,13 +84,6 @@
       box-shadow: var(--hover-glow);
     }
 
-    .what-i-do p,
-    .setup-box li,
-    .about-box p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
     .setup-box ul {
       list-style: none;
       padding: 0;
@@ -90,13 +91,7 @@
 
     .setup-box li {
       margin-bottom: 10px;
-    }
-
-    .disclaimer {
-      font-size: 0.9rem;
-      color: #aaa;
-      text-align: center;
-      margin-top: 10px;
+      font-size: 1.1rem;
     }
 
     .social-bar {
@@ -115,7 +110,7 @@
       transition: transform 0.3s ease;
     }
 
-    html:not(.touch) .social-bar a:hover {
+    .social-bar a:hover {
       transform: scale(1.3);
     }
 
@@ -138,37 +133,74 @@
       transform: translateY(0);
     }
 
-    /* Custom Cursor nur Desktop */
-    html:not(.touch) .cursor {
-      width: 25px;
-      height: 25px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 10000;
-      transition: transform 0.1s ease;
-      transform: translate(-50%, -50%);
+    /* Timeline styles */
+    .timeline-container {
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 20px;
     }
 
-    @media (min-width: 768px) {
-      .about-box {
-        flex-direction: row;
-        text-align: left;
-      }
+    .timeline-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .timeline-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .timeline-step {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      min-width: 250px;
+      text-align: center;
+      transition: transform 0.5s, opacity 0.5s;
+      opacity: 0;
+    }
+
+    .timeline-step.above {
+      transform: translateY(-50px);
+    }
+
+    .timeline-step.below {
+      transform: translateY(50px);
+    }
+
+    .timeline-step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent);
+      z-index: -1;
     }
   </style>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
 
   <header>
     <h1>LukasXmediA</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">Über Mich</a>
+      <a href="#timeline">Timeline</a>
+    </nav>
   </header>
 
-  <div class="container">
-
+  <div class="container" id="home">
     <section class="about-box fade-in-on-scroll">
       <img src="XmediA.jpg" alt="Über Mich Bild" />
       <div>
@@ -204,31 +236,41 @@
         <li><strong>Shifter:</strong> Thrustmaster TH8S</li>
         <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
       </ul>
-      <p class="disclaimer">Ich erhalte für die Nennung keines dieser Produkte Geld.</p>
     </section>
   </div>
 
+  <!-- Timeline -->
+  <section id="timeline" class="fade-in-on-scroll">
+    <h2 style="text-align:center;">LukasXmediA Timeline</h2>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      <div class="timeline-step above">2020: Erfindung des Namens „LukasXmediA“</div>
+      <div class="timeline-step below">2021: Erste Aufnahmen von Videos (privat für Freunde & Familie)</div>
+      <div class="timeline-step above">2022: Erstellung meines ersten Logos</div>
+      <div class="timeline-step below">2023: Erste Berührung mit Coding durch einen Python-Kurs</div>
+      <div class="timeline-step above">2024: Einstieg in den Videoschnitt & Content-Editing</div>
+      <div class="timeline-step below">Februar 2025: Start des „LukasXmediA“ Twitch Kanals</div>
+      <div class="timeline-step above">März 2025: Erstellung des Instagram Accounts (anfangs „LukasXmediA1“)</div>
+      <div class="timeline-step below">April 2025: Launch meines YouTube-Kanals</div>
+      <div class="timeline-step above">Juli 2025: Finales Logo Design</div>
+    </div>
+  </section>
+
   <!-- Social Media Bar -->
   <div class="social-bar">
-    <a href="https://www.instagram.com/lukasxmedia1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.twitch.tv/lukasxmedia1" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
-    <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/lukasxmedia1" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.twitch.tv/lukasxmedia1" target="_blank"><i class="fab fa-twitch"></i></a>
+    <a href="https://www.youtube.com/@LukasXmediA" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 
   <footer>
     © LukasXmediA™
   </footer>
 
-  <!-- Script: Touch Detection + ScrollReveal + Cursor -->
   <script>
-    // Klasse "touch" zum <html> Tag hinzufügen bei Touch-Geräten
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      document.documentElement.classList.add("touch");
-    }
-
-    // ScrollReveal
+    // Scroll Reveal für Abschnitte
     document.addEventListener("DOMContentLoaded", function () {
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
@@ -239,17 +281,15 @@
       document.querySelectorAll(".fade-in-on-scroll").forEach(el => observer.observe(el));
     });
 
-    // Cursor nur auf Desktop anzeigen
-    if (!document.documentElement.classList.contains("touch")) {
-      const cursor = document.getElementById('cursor');
-      document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+    // Timeline Animation
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.timeline-step').forEach((step, index) => {
+        const rect = step.getBoundingClientRect();
+        if (rect.left >= 0 && rect.left <= window.innerWidth) {
+          step.classList.add('visible');
+        }
       });
-    } else {
-      // Cursor-Element entfernen auf Touch-Geräten
-      document.getElementById('cursor').style.display = 'none';
-    }
+    });
   </script>
 </body>
 </html>
