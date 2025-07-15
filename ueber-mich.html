@@ -2,67 +2,48 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Über Mich – LukasXmediA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über Mich - LukasXmediA</title>
   <link rel="icon" href="AD12CF2C-BAE9-4359-B18A-2A3FB9CBBB79.jpeg" type="image/jpeg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1 onclick="window.location.href='index.html'">LukasXmediA</h1>
+    <h1><a href="index.html">LukasXmediA</a></h1>
+    <img src="IMG_2779.jpeg" alt="Header Bild" class="header-image">
     <nav>
       <a href="index.html">Home</a>
       <a href="ueber-mich.html">Über Mich</a>
     </nav>
   </header>
 
-  <img src="IMG_2779.jpeg" alt="Header Bild" class="header-image">
-
-  <div class="container">
-
+  <main>
     <section>
       <h2>Über Mich</h2>
-      <p>
-        Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
-        Ich liebe Gaming, besonders Simulatoren und Story Games.<br>
-        Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
-        Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
-      </p>
+      <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
+      Ich liebe Gaming, besonders Simulatoren und Story Games.<br>
+      Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+      Wir sehen uns dann mal vielleicht in nem Stream, bis dann!</p>
     </section>
 
     <section>
       <h2>Meine Geschichte</h2>
       <div class="timeline">
-        <div class="timeline-event"><h3>2020</h3><p>Erfindung des Namens „LukasXmediA“.</p></div>
-        <div class="timeline-event"><h3>2021</h3><p>Erste private Videoaufnahmen gestartet.</p></div>
-        <div class="timeline-event"><h3>2022</h3><p>Mein allererstes Logo kreiert.</p></div>
-        <div class="timeline-event"><h3>2023</h3><p>Erste Coding-Erfahrungen durch Python Kurs.</p></div>
-        <div class="timeline-event"><h3>2024</h3><p>Start mit professionellem Videoschnitt.</p></div>
-        <div class="timeline-event"><h3>Februar 2025</h3><p>Launch des Twitch Kanals „LukasXmediA“.</p></div>
-        <div class="timeline-event"><h3>März 2025</h3><p>Instagram Account erstellt.</p></div>
-        <div class="timeline-event"><h3>April 2025</h3><p>Mein YouTube Kanal geht online!</p></div>
-        <div class="timeline-event"><h3>Juli 2025</h3><p>Mein finales Logo entsteht.</p></div>
+        <div class="timeline-item"><strong>2020:</strong> Erfindung des Namens „LukasXmediA“</div>
+        <div class="timeline-item"><strong>2021:</strong> Erste Aufnahmen von Videos (Privat)</div>
+        <div class="timeline-item"><strong>2022:</strong> Erstellung meines ersten Logos</div>
+        <div class="timeline-item"><strong>2023:</strong> Erste Berührung mit Coding über einen Anfänger-Python-Kurs</div>
+        <div class="timeline-item"><strong>2024:</strong> Erlernen von Videoschnitt</div>
+        <div class="timeline-item"><strong>Februar 2025:</strong> Start des „LukasXmediA“ Twitch Kanals</div>
+        <div class="timeline-item"><strong>März 2025:</strong> Erstellung des „LukasXmediA“ Insta Accounts</div>
+        <div class="timeline-item"><strong>April 2025:</strong> Erstellung des „LukasXmediA“ YouTube Kanals</div>
+        <div class="timeline-item"><strong>Juli 2025:</strong> Finales Logo Design</div>
       </div>
     </section>
+  </main>
 
-  </div>
-
-  <footer>© LukasXmediA™</footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.timeline-event').forEach(el => observer.observe(el));
-    });
-  </script>
-
+  <footer>
+    © LukasXmediA™
+  </footer>
 </body>
 </html>
