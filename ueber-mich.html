@@ -46,7 +46,25 @@
       </div>
     </section>
   </main>
+.social-bar {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
 
+.social-bar a {
+  color: var(--accent);
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.social-bar a:hover {
+  transform: scale(1.3);
+}
   <footer>
     © LukasXmediA™
   </footer>
