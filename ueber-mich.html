@@ -51,13 +51,14 @@
     .timeline {
       position: relative;
       margin: 50px 0;
-      padding-left: 40px;
+      padding-left: 30px;
       border-left: 3px solid #39FF14;
     }
 
     .timeline-event {
       position: relative;
       margin-bottom: 40px;
+      padding-left: 30px;
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 1s ease, transform 1s ease;
@@ -71,13 +72,14 @@
     .timeline-event::before {
       content: '';
       position: absolute;
-      left: -12px;
-      top: 0;
-      width: 15px;
-      height: 15px;
+      left: -16px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
       background-color: #39FF14;
       border-radius: 50%;
       border: 2px solid #fff;
+      transform: translateX(-50%);
     }
 
     .timeline-event h3 {
@@ -183,7 +185,6 @@
 
   </div>
 
-  <!-- Social Media Bar -->
   <div class="social-bar">
     <a href="https://www.instagram.com/lukasxmedia1" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.twitch.tv/lukasxmedia1" target="_blank"><i class="fab fa-twitch"></i></a>
@@ -194,7 +195,6 @@
     © LukasXmediA™
   </footer>
 
-  <!-- Fade-In beim Scrollen -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver(entries => {
@@ -205,9 +205,7 @@
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.timeline-event').forEach(el => {
-        observer.observe(el);
-      });
+      document.querySelectorAll('.timeline-event').forEach(el => observer.observe(el));
     });
   </script>
 
