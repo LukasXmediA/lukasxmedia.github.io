@@ -2,80 +2,54 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über Mich | LukasXmediA</title>
-  <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #121212;
-      color: #f0f0f0;
-    }
-    header {
-      background: linear-gradient(to right, #1a1a1a, #2c2c2c);
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      color: #39FF14;
-      margin: 0;
-      cursor: pointer;
-    }
-    nav {
-      text-align: center;
-      margin: 10px 0;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #39FF14;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    .btn {
-      display: inline-block;
-      background: #39FF14;
-      color: #121212;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      background: #1a1a1a;
-      color: #666;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1 onclick="location.href='index.html'">LukasXmediA</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="ueber-mich.html">Über Mich</a>
+    </nav>
+  </header>
 
-<header>
-  <h1 onclick="location.href='index.html'">LukasXmediA</h1>
-</header>
+  <main>
+    <section>
+      <h2>Über Mich</h2>
+      <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA. Ich liebe Gaming, besonders Simulatoren und Story Games. Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.</p>
+      <p>Wir sehen uns vielleicht mal in einem meiner Streams oder Projekte – bis dann!</p>
+    </section>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="ueber-mich.html">Über Mich</a>
-</nav>
+    <section>
+      <h2>Meine Geschichte</h2>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="event"><h3>2020</h3><p>Erfindung des Namens „LukasXmediA“.</p></div>
+          <div class="event"><h3>2021</h3><p>Erste private Videoaufnahmen.</p></div>
+          <div class="event"><h3>2022</h3><p>Erstellung meines ersten Logos.</p></div>
+          <div class="event"><h3>2023</h3><p>Erste Coding-Erfahrungen mit Python Kurs.</p></div>
+          <div class="event"><h3>2024</h3><p>Erlernen von Videoschnitt und Editing.</p></div>
+          <div class="event"><h3>Februar 2025</h3><p>Start meines Twitch-Kanals.</p></div>
+          <div class="event"><h3>März 2025</h3><p>Instagram-Account „LukasXmediA1“ erstellt.</p></div>
+          <div class="event"><h3>April 2025</h3><p>Launch meines YouTube-Kanals.</p></div>
+          <div class="event"><h3>Juli 2025</h3><p>Finales Logo Design veröffentlicht.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="container">
-  <h2>Über Mich</h2>
-  <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA. Ich liebe Gaming, Technik, Drums und Fotografie.</p>
-  
-  <a class="btn" href="meine-geschichte.html">Zu meiner Geschichte</a>
-</div>
+  <footer>©LukasXmediA™</footer>
 
-<footer>
-  © LukasXmediA™
-</footer>
-
+  <script>
+    const timeline = document.querySelector('.timeline-container');
+    window.addEventListener('wheel', function(e) {
+      if(timeline && timeline.scrollLeft !== undefined) {
+        e.preventDefault();
+        timeline.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  </script>
 </body>
 </html>
