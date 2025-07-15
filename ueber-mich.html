@@ -3,53 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Über Mich | LukasXmediA</title>
+  <title>Über Mich & Meine Geschichte - LukasXmediA</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .timeline-section {
+      position: relative;
+      height: 100vh;
+    }
+
+    .timeline-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .timeline-item {
+      display: inline-block;
+      width: 250px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: var(--hover-glow);
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      transform: translateY(-20px);
+    }
+
+    .timeline-item:nth-child(even) {
+      transform: translateY(20px);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-wrapper {
+        flex-direction: column;
+        white-space: normal;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .timeline-item {
+        width: auto;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1 onclick="location.href='index.html'">LukasXmediA</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="ueber-mich.html">Über Mich</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
+<header>
+  <h1><a href="index.html">LukasXmediA</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ueber-mich.html">Über Mich & Meine Geschichte</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <section class="about-box">
+    <img src="XmediA.jpg" alt="Über Mich Bild">
+    <div>
       <h2>Über Mich</h2>
-      <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA. Ich liebe Gaming, besonders Simulatoren und Story Games. Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.</p>
-      <p>Wir sehen uns vielleicht mal in einem meiner Streams oder Projekte – bis dann!</p>
-    </section>
+      <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
+      Ich liebe Gaming, besonders Simulatoren und Story Games.<br>
+      Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+      Wir sehen uns dann mal vielleicht in nem Stream, bis dann!</p>
+    </div>
+  </section>
 
-    <section>
-      <h2>Meine Geschichte</h2>
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="event"><h3>2020</h3><p>Erfindung des Namens „LukasXmediA“.</p></div>
-          <div class="event"><h3>2021</h3><p>Erste private Videoaufnahmen.</p></div>
-          <div class="event"><h3>2022</h3><p>Erstellung meines ersten Logos.</p></div>
-          <div class="event"><h3>2023</h3><p>Erste Coding-Erfahrungen mit Python Kurs.</p></div>
-          <div class="event"><h3>2024</h3><p>Erlernen von Videoschnitt und Editing.</p></div>
-          <div class="event"><h3>Februar 2025</h3><p>Start meines Twitch-Kanals.</p></div>
-          <div class="event"><h3>März 2025</h3><p>Instagram-Account „LukasXmediA1“ erstellt.</p></div>
-          <div class="event"><h3>April 2025</h3><p>Launch meines YouTube-Kanals.</p></div>
-          <div class="event"><h3>Juli 2025</h3><p>Finales Logo Design veröffentlicht.</p></div>
-        </div>
+  <section class="setup-box">
+    <h2>Mein Setup</h2>
+    <ul>
+      <li><strong>PC:</strong> Acer Predator Orion 3000 (16GB RAM, RTX 3070)</li>
+      <li><strong>Maus:</strong> Razer Naga Trinity</li>
+      <li><strong>Kamera:</strong> Razer Kiyo Pro</li>
+      <li><strong>Headset:</strong> Razer Kraken V3</li>
+      <li><strong>Mikrofon:</strong> HyperX QuadCast S</li>
+      <li><strong>Tastatur:</strong> Cherry MX 3.0S Black</li>
+      <li><strong>Monitor:</strong> 2× Acer Nitro KG272S3</li>
+      <li><strong>Lenkrad:</strong> Thrustmaster T128</li>
+      <li><strong>Shifter:</strong> Thrustmaster TH8S</li>
+      <li><strong>Flightstick:</strong> Thrustmaster T.Flight Hotas One</li>
+    </ul>
+  </section>
+
+  <section class="timeline-section">
+    <h2>Meine Geschichte</h2>
+    <div class="timeline-sticky">
+      <div class="timeline-wrapper">
+        <div class="timeline-item"><strong>2020:</strong> Die Geburtsstunde von LukasXmediA – der Name entstand.</div>
+        <div class="timeline-item"><strong>2021:</strong> Erste private Videoaufnahmen entstehen.</div>
+        <div class="timeline-item"><strong>2022:</strong> Mein erstes Logo geht an den Start!</div>
+        <div class="timeline-item"><strong>2023:</strong> Einstieg ins Coding mit Python Kursen.</div>
+        <div class="timeline-item"><strong>2024:</strong> Ich erlernte den Videoschnitt – ein neues Hobby!</div>
+        <div class="timeline-item"><strong>Februar 2025:</strong> Start des Twitch-Kanals „LukasXmediA“.</div>
+        <div class="timeline-item"><strong>März 2025:</strong> Gründung des Instagram-Accounts.</div>
+        <div class="timeline-item"><strong>April 2025:</strong> Mein YouTube-Kanal ist geboren!</div>
+        <div class="timeline-item"><strong>Juli 2025:</strong> Mein finales Logo wurde fertiggestellt.</div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>©LukasXmediA™</footer>
+</div>
 
-  <script>
-    const timeline = document.querySelector('.timeline-container');
-    window.addEventListener('wheel', function(e) {
-      if(timeline && timeline.scrollLeft !== undefined) {
-        e.preventDefault();
-        timeline.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
-  </script>
+<footer>© LukasXmediA™</footer>
+
 </body>
 </html>
