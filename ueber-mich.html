@@ -1,115 +1,135 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Über Mich & Meine Geschichte - LukasXmediA</title>
-  <link rel="icon" href="logo.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Über Mich – LukasXmediA</title>
+  <link rel="icon" href="6296CEE6-A1F2-4B8C-906D-400C1AFA6699.png" type="image/x-icon" />
   <style>
-    .timeline-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background-color: var(--bg);
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
     }
 
-    .timeline-content {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .timeline {
-      display: flex;
-      gap: 50px;
-      white-space: nowrap;
-      padding: 20px;
-      align-items: center;
-    }
-
-    .timeline-item {
-      background: var(--card-bg);
-      border: 1px solid var(--accent);
-      border-radius: 10px;
-      padding: 10px 20px;
-      min-width: 200px;
+    header {
+      background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+      padding: 40px 20px;
       text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #39FF14;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .about-section img {
+      max-width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Timeline */
+    .timeline {
       position: relative;
+      margin: 50px 0;
+      padding-left: 40px;
+      border-left: 3px solid #39FF14;
+    }
+
+    .timeline-event {
+      position: relative;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .timeline-event.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      background-color: #39FF14;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .timeline-event h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.2rem;
+      color: #39FF14;
+    }
+
+    .timeline-event p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .social-bar {
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      z-index: 999;
     }
 
-    .timeline-item::before {
-      content: '';
-      width: 14px;
-      height: 14px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: 2px solid #fff;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -25px;
+    .social-bar a {
+      color: #39FF14;
+      font-size: 1.6rem;
+      transition: transform 0.3s ease;
     }
 
-    .timeline-item:nth-child(odd) {
-      align-self: flex-start;
+    .social-bar a:hover {
+      transform: scale(1.3);
     }
 
-    .timeline-item:nth-child(even) {
-      align-self: flex-end;
-    }
-
-    .timeline-line {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background: var(--accent);
-      transform: translateY(-50%);
-      z-index: -1;
-    }
-
-    @media (max-width: 768px) {
-      .timeline {
-        flex-direction: column;
-        white-space: normal;
-      }
-
-      .timeline-item {
-        min-width: auto;
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      .timeline-line {
-        display: none;
-      }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      background-color: #1a1a1a;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1><a href="index.html" style="color: var(--accent); text-decoration: none;">LukasXmediA</a></h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="ueber-mich.html">Über Mich & Meine Geschichte</a>
-  </nav>
-</header>
+  <header>
+    <h1 onclick="window.location.href='index.html'">LukasXmediA</h1>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <section class="about-box">
-    <img src="XmediA.jpg" alt="Über Mich Bild">
-    <div>
+    <section class="about-section">
+      <img src="XmediA.jpg" alt="Über Mich Bild">
       <h2>Über Mich</h2>
       <p>
         Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
@@ -117,59 +137,79 @@
         Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
         Wir sehen uns dann mal vielleicht in nem Stream, bis dann!
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>Meine Geschichte</h2>
-    <div class="timeline-container">
-      <div class="timeline-content">
-        <div class="timeline-line"></div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <strong>2020</strong>
-            <p>Die Erfindung des Namens „LukasXmediA“ markierte meinen Start als Creator.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>2021</strong>
-            <p>Erste private Videoaufnahmen entstanden – ein erster Schritt in die kreative Welt.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>2022</strong>
-            <p>Ich entwarf mein erstes eigenes Logo und schuf damit meine visuelle Identität.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>2023</strong>
-            <p>Meine Reise in die Welt des Programmierens begann mit einem Python-Kurs.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>2024</strong>
-            <p>Ich begann, professionell Videos zu schneiden und mein Wissen zu vertiefen.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>Februar 2025</strong>
-            <p>Start meines Twitch-Kanals „LukasXmediA“ – endlich live!</p>
-          </div>
-          <div class="timeline-item">
-            <strong>März 2025</strong>
-            <p>Erstellung meines Instagram-Accounts „LukasXmediA1“.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>April 2025</strong>
-            <p>Mein YouTube-Kanal geht online und ich teile meine Inhalte mit der Welt.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>Juli 2025</strong>
-            <p>Mein finales Logo entsteht – der letzte Feinschliff meiner Marke.</p>
-          </div>
+    <section>
+      <h2>Meine Geschichte</h2>
+      <div class="timeline">
+        <div class="timeline-event">
+          <h3>2020</h3>
+          <p>Erfindung des Namens „LukasXmediA“ – der Grundstein für alles, was folgte.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>2021</h3>
+          <p>Erste private Videoaufnahmen – die Leidenschaft für Medien begann zu wachsen.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>2022</h3>
+          <p>Erstellung meines allerersten Logos – ein Meilenstein für meine Marke.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>2023</h3>
+          <p>Meine erste Berührung mit dem Programmieren – Python Grundkurs absolviert.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>2024</h3>
+          <p>Beginn des Videoschnitts – ich entdeckte neue kreative Möglichkeiten.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>Februar 2025</h3>
+          <p>Launch des „LukasXmediA“ Twitch Kanals – Start meiner Livestream-Reise.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>März 2025</h3>
+          <p>Erstellung meines Instagram Accounts – der Anfang meiner Social Media Präsenz.</p>
+        </div>
+        <div class="timeline-event">
+          <h3>April 2025</h3>
+          <p>Mein YouTube Kanal „LukasXmediA“ geht an den Start!</p>
+        </div>
+        <div class="timeline-event">
+          <h3>Juli 2025</h3>
+          <p>Das finale Logo-Design entsteht – die Marke ist nun komplett!</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</div>
+  </div>
 
-<footer>© LukasXmediA™</footer>
+  <!-- Social Media Bar -->
+  <div class="social-bar">
+    <a href="https://www.instagram.com/lukasxmedia1" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.twitch.tv/lukasxmedia1" target="_blank"><i class="fab fa-twitch"></i></a>
+    <a href="https://www.youtube.com/@LukasXmediA" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <footer>
+    © LukasXmediA™
+  </footer>
+
+  <!-- Fade-In beim Scrollen -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.timeline-event').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>
