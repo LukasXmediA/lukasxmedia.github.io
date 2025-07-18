@@ -1,43 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pointsField = document.getElementById("pointsField");
 
-  // 15 kleine Punkte random
+  // 15 kleine Punkte
   for (let i = 0; i < 15; i++) {
-    createPoint("small");
+    const p = document.createElement("div");
+    p.classList.add("point", "small");
+    pointsField.appendChild(p);
   }
 
-  // 3 Social Media Punkte
+  // Social Media Punkte (3) - nur einmal!
   const socials = [
     { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
     { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
     { icon: "fab fa-twitch", link: "https://www.twitch.tv/lukasxmedia1" },
   ];
 
-  socials.forEach((s) => createSocialPoint(s.icon, s.link));
-
-  // Bildpunkt (wächst nur wenn aktiv)
-  const imagePoint = createPoint("image-point");
-
-  function createPoint(type) {
+  socials.forEach(({ icon, link }) => {
     const p = document.createElement("div");
-    p.classList.add("point", type);
-    randomizePosition(p);
-    pointsField.appendChild(p);
-    return p;
-  }
-
-  function createSocialPoint(icon, link) {
-    const p = createPoint("social");
+    p.classList.add("point", "social");
     p.innerHTML = `<i class="${icon}"></i>`;
     p.addEventListener("click", () => window.open(link, "_blank"));
-  }
+    pointsField.appendChild(p);
+  });
 
-  function randomizePosition(el) {
-    el.style.top = `${Math.random() * 90}%`;
-    el.style.left = `${Math.random() * 90}%`;
-  }
+  // Bildpunkt (wächst nur bei erstem Abschnitt)
+  const imagePoint = document.createElement("div");
+  imagePoint.classList.add("point", "image-point");
+  pointsField.appendChild(imagePoint);
 
-  // Scrollsteuerung für Wort-für-Wort und Abschnittswechsel
+  // Scrollsteuerung Wort-für-Wort + Abschnittswechsel
   const sections = document.querySelectorAll(".content-section");
   let currentSection = 0;
   let currentWord = 0;
@@ -45,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   prepareSection(sections[currentSection]);
 
+  // Blockiere natürliches Scrollen
   window.addEventListener(
     "wheel",
     (e) => {
@@ -54,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         words[currentWord].classList.add("active");
         currentWord++;
 
+        // Wenn Text komplett weiß, zeige Bild (sofern gesetzt)
         if (currentWord === words.length) {
-          // Bildpunkt zeigen, falls Bild da ist
           const img = sections[currentSection].getAttribute("data-image");
           if (img) {
             imagePoint.classList.add("active");
@@ -73,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: false }
   );
 
+  // Wortweise vorbereiten
   function prepareSection(section) {
     const textEl = section.querySelector(".fade-text");
     const text = textEl.textContent.trim();
@@ -85,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     currentWord = 0;
 
-    // Bildpunkt resetten
     imagePoint.classList.remove("active");
     imagePoint.style.backgroundImage = "";
   }
