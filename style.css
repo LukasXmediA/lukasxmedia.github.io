@@ -13,7 +13,6 @@ header {
 h1 {
   color: white;
   font-size: 3rem;
-  margin-bottom: 10px;
 }
 
 nav a {
@@ -29,14 +28,17 @@ nav a:hover {
 
 .main-container {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 20px;
-  gap: 20px;
 }
 
-.text-content {
+.text-section {
   width: 45%;
+}
+
+.fade-text {
+  margin-bottom: 40px;
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
@@ -56,7 +58,9 @@ nav a:hover {
 .points-field {
   width: 50%;
   height: 100vh;
-  position: relative;
+  position: sticky;
+  top: 20px;
+  position: -webkit-sticky;
 }
 
 .point {
@@ -116,9 +120,8 @@ nav a:hover {
     align-items: center;
   }
 
-  .text-content {
+  .text-section {
     width: 90%;
-    font-size: 1rem;
   }
 
   .points-field {
