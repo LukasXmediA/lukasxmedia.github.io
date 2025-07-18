@@ -1,4 +1,4 @@
-/* Grund-Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
   background: black;
   color: grey;
-  overflow: hidden; /* Scrollen via JS */
+  overflow: hidden;
 }
 
 header {
@@ -34,44 +34,49 @@ nav a:hover {
   color: #39ff14;
 }
 
-/* Fixierte Punkte rechts */
+/* Punktefeld rechts, 50% Breite (mobil 25%) */
 #pointsField {
   position: fixed;
   top: 0;
   right: 0;
   width: 50vw;
   height: 100vh;
-  pointer-events: none; /* Klicks durchlassen */
+  pointer-events: none;
   z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 20px;
+  gap: 12px;
 }
 
-/* Punkte */
-.point {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
-
+/* Kleine Punkte (15 Stück) */
 .point.small {
-  width: 8px;
+  flex: 0 0 8px;
   height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
+/* Social Media Punkte - nur einmal */
 .point.social {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  pointer-events: auto; /* Klickbar */
+  border-radius: 50%;
+  transition: color 0.3s ease;
 }
 
 .point.social i {
   color: grey;
-  font-size: 14px;
+  font-size: 28px;
   transition: color 0.3s ease;
 }
 
@@ -79,20 +84,25 @@ nav a:hover {
   color: white;
 }
 
+/* Bildpunkt (groß) */
 .point.image-point {
   width: 20px;
   height: 20px;
-  pointer-events: auto;
+  border-radius: 20px;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .point.image-point.active {
-  width: 150px;
-  height: 150px;
+  width: 150px !important;
+  height: 150px !important;
   opacity: 1;
-  box-shadow: 0 0 10px #39ff14aa;
+  box-shadow: 0 0 15px #39ff14aa;
+  border-radius: 20px;
+  pointer-events: auto;
 }
 
 /* Content Sections */
@@ -105,6 +115,7 @@ nav a:hover {
   box-sizing: border-box;
   position: relative;
   z-index: 2;
+  color: grey;
 }
 
 .text {
@@ -113,6 +124,7 @@ nav a:hover {
   line-height: 1.6;
   text-align: left;
   user-select: text;
+  pointer-events: auto;
 }
 
 /* Wortweise Fade-In */
@@ -131,6 +143,8 @@ nav a:hover {
 @media (max-width: 768px) {
   #pointsField {
     width: 25vw;
+    padding: 10px;
+    gap: 8px;
   }
 
   .content-section {
@@ -142,5 +156,19 @@ nav a:hover {
   .text {
     width: 100%;
     font-size: 1rem;
+  }
+
+  .point.social {
+    width: 30px;
+    height: 30px;
+  }
+
+  .point.social i {
+    font-size: 22px;
+  }
+
+  .point.image-point.active {
+    width: 120px !important;
+    height: 120px !important;
   }
 }
