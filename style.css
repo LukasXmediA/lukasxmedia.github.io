@@ -8,62 +8,44 @@ body {
 
 header {
   text-align: center;
-  padding: 30px 0;
+  padding: 20px;
 }
 
 h1 {
   color: white;
   font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-.content {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-  flex-wrap: wrap;
-}
-
-.dots {
-  width: 45%;
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  position: sticky;
-  top: 80px;
-}
-
-.dot {
-  width: 15px;
-  height: 15px;
-  background: white;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.dot.social i {
-  color: grey;
-  font-size: 1.5rem;
-}
-
-.dot.social:hover i {
+nav a {
   color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.text-section, .skills-list, .timeline {
+nav a:hover {
+  color: #39FF14;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 30px;
+}
+
+.text-content {
   width: 45%;
-  min-width: 250px;
-  margin: 50px 0;
   font-size: 1.2rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .fade-text span {
   opacity: 0.3;
+  color: grey;
   transition: color 0.5s, opacity 0.5s;
 }
 
@@ -72,48 +54,98 @@ h1 {
   opacity: 1;
 }
 
-#image-dot.active {
+.dots-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 80px;
+  height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Kleine Punkte */
+.dot.small {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.dot.small:hover {
+  opacity: 1;
+  cursor: default;
+}
+
+/* Spezielle Punkte */
+.dot {
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot.social i {
+  color: grey;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+.dot.social:hover i {
+  color: white;
+  cursor: pointer;
+}
+
+.dot.image-dot.active {
   width: 150px;
   height: 150px;
+  border-radius: 20px;
   background-size: cover;
   background-position: center;
+  transition: width 0.5s ease, height 0.5s ease;
 }
 
-.image-section img {
-  display: none;
+.dot.neutral {
+  background: white;
+  opacity: 0.5;
 }
 
-.skills-list li {
-  margin-bottom: 10px;
-}
-
-/* --- Responsives Design --- */
-
-@media (max-width: 1024px) {
-  .content {
+@media (max-width: 768px) {
+  .main-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .dots, .text-section, .skills-list, .timeline {
+  .dots-container {
+    width: 25%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: 100px;
+    overflow-y: visible;
+  }
+
+  .dot.small {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .text-content {
     width: 90%;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .dot.social i {
-    font-size: 1.2rem;
-  }
-
-  .text-section, .skills-list, .timeline {
     font-size: 1rem;
   }
 }
