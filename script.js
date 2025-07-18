@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-text').forEach(el => observer.observe(el));
 
-  // Social Media Links klickbar
+  // Social Media Klicks
   document.querySelectorAll('.dot.social').forEach(dot => {
     dot.addEventListener('click', () => {
       const link = dot.getAttribute('data-link');
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Bild im Punkt anzeigen (nur wenn Bild vorhanden)
+  // Bild im Punkt anzeigen
   const imgDot = document.getElementById('image-dot');
   const imgSection = document.querySelector('.image-section img');
   if (imgDot && imgSection) {
