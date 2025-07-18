@@ -1,84 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const pointsField = document.getElementById("pointsField");
+  const sections = document.querySelectorAll(".section");
+  let currentSection = 0;
+  let textActive = false;
 
-  // 15 kleine Punkte
-  for (let i = 0; i < 15; i++) {
-    const p = document.createElement("div");
-    p.classList.add("point", "small");
-    pointsField.appendChild(p);
-  }
+  // Punkte und Social Media für alle Sektionen
+  sections.forEach((section) => {
+    const pointsContainer = section.querySelector(".points");
 
-  // Social Media Punkte (3) - nur einmal!
-  const socials = [
-    { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
-    { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
-    { icon: "fab fa-twitch", link: "https://www.twitch.tv/lukasxmedia1" },
-  ];
+    // 15 kleine Punkte
+    for (let i = 0; i < 15; i++) {
+      const p = document.createElement("div");
+      p.classList.add("point");
+      pointsContainer.appendChild(p);
+    }
 
-  socials.forEach(({ icon, link }) => {
-    const p = document.createElement("div");
-    p.classList.add("point", "social");
-    p.innerHTML = `<i class="${icon}"></i>`;
-    p.addEventListener("click", () => window.open(link, "_blank"));
-    pointsField.appendChild(p);
+    // Social Media Punkte (einmal pro Section)
+    const socials = [
+      { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
+      { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
+      { icon: "fab fa-twitch", link: "https://www.twitch.tv/lukasxmedia1" },
+    ];
+
+    socials.forEach(({ icon, link }) => {
+      const sp = document.createElement("div");
+      sp.classList.add("point", "social");
+      sp.innerHTML = `<i class="${icon}"></i>`;
+      sp.addEventListener("click", () => window.open(link, "_blank"));
+      pointsContainer.appendChild(sp);
+    });
   });
 
-  // Bildpunkt (wächst nur bei erstem Abschnitt)
-  const imagePoint = document.createElement("div");
-  imagePoint.classList.add("point", "image-point");
-  pointsField.appendChild(imagePoint);
+  // Aktivier den Text (weiß machen)
+  function activateText(section) {
+    const text = section.querySelector(".text");
+    text.classList.add("active");
+  }
 
-  // Scrollsteuerung Wort-für-Wort + Abschnittswechsel
-  const sections = document.querySelectorAll(".content-section");
-  let currentSection = 0;
-  let currentWord = 0;
-  let words = [];
+  // Deaktivier den Text (grau)
+  function deactivateText(section) {
+    const text = section.querySelector(".text");
+    text.classList.remove("active");
+  }
 
-  prepareSection(sections[currentSection]);
+  // Zeig initial nur den ersten Text grau, andere grau auch
+  sections.forEach((sec, i) => {
+    if (i === 0) activateText(sec); else deactivateText(sec);
+  });
 
-  // Blockiere natürliches Scrollen
+  // Scrollverhalten:
   window.addEventListener(
     "wheel",
     (e) => {
       e.preventDefault();
 
-      if (currentWord < words.length) {
-        words[currentWord].classList.add("active");
-        currentWord++;
-
-        // Wenn Text komplett weiß, zeige Bild (sofern gesetzt)
-        if (currentWord === words.length) {
-          const img = sections[currentSection].getAttribute("data-image");
-          if (img) {
-            imagePoint.classList.add("active");
-            imagePoint.style.backgroundImage = `url('${img}')`;
-          } else {
-            imagePoint.classList.remove("active");
-            imagePoint.style.backgroundImage = "";
-          }
+      if (!textActive) {
+        // Weiß machen + Scrollen blockieren bis fertig
+        activateText(sections[currentSection]);
+        textActive = true;
+      } else {
+        // Wenn Text aktiv (weiß), dann wechsle zur nächsten Sektion
+        if (currentSection < sections.length - 1) {
+          deactivateText(sections[currentSection]);
+          currentSection++;
+          activateText(sections[currentSection]);
+          textActive = false;
         }
-      } else if (currentSection < sections.length - 1) {
-        currentSection++;
-        prepareSection(sections[currentSection]);
       }
     },
     { passive: false }
   );
 
-  // Wortweise vorbereiten
-  function prepareSection(section) {
-    const textEl = section.querySelector(".fade-text");
-    const text = textEl.textContent.trim();
-    textEl.textContent = "";
-    words = text.split(" ").map((word) => {
-      const span = document.createElement("span");
-      span.textContent = word + " ";
-      textEl.appendChild(span);
-      return span;
-    });
-    currentWord = 0;
+  // Touch Scroll auch
+  let touchStartY = 0;
+  window.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true }
+  );
+  window.addEventListener(
+    "touchmove",
+    (e) => {
+      e.preventDefault();
+      let touchEndY = e.touches[0].clientY;
+      let delta = touchStartY - touchEndY;
 
-    imagePoint.classList.remove("active");
-    imagePoint.style.backgroundImage = "";
-  }
+      if (Math.abs(delta) > 30) {
+        if (!textActive) {
+          activateText(sections[currentSection]);
+          textActive = true;
+        } else {
+          if (currentSection < sections.length - 1) {
+            deactivateText(sections[currentSection]);
+            currentSection++;
+            activateText(sections[currentSection]);
+            textActive = false;
+          }
+        }
+      }
+    },
+    { passive: false }
+  );
 });
