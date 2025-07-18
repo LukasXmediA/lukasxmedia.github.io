@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
   background: black;
   color: grey;
-  overflow: hidden;
+  overflow: hidden; /* Scroll über JS */
 }
 
 header {
@@ -34,44 +33,58 @@ nav a:hover {
   color: #39ff14;
 }
 
-/* Punktefeld rechts, 50% Breite (mobil 25%) */
-#pointsField {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50vw;
+#container {
   height: 100vh;
-  pointer-events: none;
-  z-index: 1;
+  overflow: hidden;
+}
+
+.section {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.text {
+  width: 50%;
+  padding: 40px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  text-align: left;
+  color: grey;
+  user-select: text;
+  transition: color 0.4s ease;
+}
+
+.text.active {
+  color: white;
+}
+
+.points {
+  width: 50%;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
+  padding: 40px;
+  justify-content: flex-start;
   align-content: flex-start;
-  padding: 20px;
-  gap: 12px;
 }
 
-/* Kleine Punkte (15 Stück) */
-.point.small {
-  flex: 0 0 8px;
-  height: 8px;
+.point {
   background: white;
   border-radius: 50%;
-  opacity: 0.6;
-  pointer-events: none;
+  width: 10px;
+  height: 10px;
 }
 
-/* Social Media Punkte - nur einmal */
+/* Social Media Punkte größer */
 .point.social {
   width: 40px;
   height: 40px;
-  background: transparent;
   cursor: pointer;
-  pointer-events: auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  transition: color 0.3s ease;
+  align-items: center;
 }
 
 .point.social i {
@@ -84,78 +97,20 @@ nav a:hover {
   color: white;
 }
 
-/* Bildpunkt (groß) */
-.point.image-point {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  transition: all 0.5s ease;
-  pointer-events: none;
-  opacity: 0.8;
-}
-
-.point.image-point.active {
-  width: 150px !important;
-  height: 150px !important;
-  opacity: 1;
-  box-shadow: 0 0 15px #39ff14aa;
-  border-radius: 20px;
-  pointer-events: auto;
-}
-
-/* Content Sections */
-.content-section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
-  padding-left: 50px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
-  color: grey;
-}
-
-.text {
-  width: 45%;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-  user-select: text;
-  pointer-events: auto;
-}
-
-/* Wortweise Fade-In */
-.fade-text span {
-  opacity: 0.3;
-  color: grey;
-  transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-.fade-text span.active {
-  color: white;
-  opacity: 1;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  #pointsField {
-    width: 25vw;
-    padding: 10px;
-    gap: 8px;
-  }
-
-  .content-section {
+  .section {
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 30px 20px;
   }
 
-  .text {
+  .text,
+  .points {
     width: 100%;
-    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .points {
+    gap: 8px;
   }
 
   .point.social {
@@ -165,10 +120,5 @@ nav a:hover {
 
   .point.social i {
     font-size: 22px;
-  }
-
-  .point.image-point.active {
-    width: 120px !important;
-    height: 120px !important;
   }
 }
