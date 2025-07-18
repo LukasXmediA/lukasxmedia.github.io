@@ -18,17 +18,23 @@ h1 {
 
 .content {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
 .dots {
-  width: 50%;
+  width: 45%;
+  min-width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   position: sticky;
-  top: 100px;
+  top: 80px;
 }
 
 .dot {
@@ -49,9 +55,11 @@ h1 {
 }
 
 .text-section, .skills-list, .timeline {
-  width: 40%;
-  margin: 100px auto;
+  width: 45%;
+  min-width: 250px;
+  margin: 50px 0;
   font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .fade-text span {
@@ -73,4 +81,39 @@ h1 {
 
 .image-section img {
   display: none;
+}
+
+.skills-list li {
+  margin-bottom: 10px;
+}
+
+/* --- Responsives Design --- */
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dots, .text-section, .skills-list, .timeline {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .dot.social i {
+    font-size: 1.2rem;
+  }
+
+  .text-section, .skills-list, .timeline {
+    font-size: 1rem;
+  }
 }
