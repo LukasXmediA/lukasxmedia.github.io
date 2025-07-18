@@ -1,9 +1,15 @@
-body {
+/* Grund-Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: black;
   color: grey;
-  overflow: hidden;
+  overflow: hidden; /* Scrollen via JS */
 }
 
 header {
@@ -14,6 +20,7 @@ header {
 h1 {
   color: white;
   font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 nav a {
@@ -24,31 +31,71 @@ nav a {
 }
 
 nav a:hover {
-  color: #39FF14;
+  color: #39ff14;
 }
 
+/* Fixierte Punkte rechts */
 #pointsField {
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 50vw;
   height: 100vh;
-  z-index: -1;
+  pointer-events: none; /* Klicks durchlassen */
+  z-index: 1;
 }
 
+/* Punkte */
 .point {
   position: absolute;
   border-radius: 50%;
   background: white;
   opacity: 0.6;
+  transition: all 0.3s ease;
 }
 
-.point.small { width: 8px; height: 8px; }
-.point.social { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-.point.social i { color: grey; font-size: 14px; }
-.point.image-point { width: 20px; height: 20px; }
-.point.image-point.active { width: 150px; height: 150px; border-radius: 20px; background-size: cover; background-position: center; }
+.point.small {
+  width: 8px;
+  height: 8px;
+}
 
+.point.social {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto; /* Klickbar */
+}
+
+.point.social i {
+  color: grey;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.point.social:hover i {
+  color: white;
+}
+
+.point.image-point {
+  width: 20px;
+  height: 20px;
+  pointer-events: auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.point.image-point.active {
+  width: 150px;
+  height: 150px;
+  opacity: 1;
+  box-shadow: 0 0 10px #39ff14aa;
+}
+
+/* Content Sections */
 .content-section {
   display: flex;
   align-items: center;
@@ -56,6 +103,8 @@ nav a:hover {
   height: 100vh;
   padding-left: 50px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .text {
@@ -63,12 +112,14 @@ nav a:hover {
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
+  user-select: text;
 }
 
+/* Wortweise Fade-In */
 .fade-text span {
   opacity: 0.3;
   color: grey;
-  transition: color 0.5s, opacity 0.5s;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .fade-text span.active {
@@ -76,7 +127,20 @@ nav a:hover {
   opacity: 1;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  #pointsField { width: 25%; }
-  .text { width: 90%; }
+  #pointsField {
+    width: 25vw;
+  }
+
+  .content-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 20px;
+  }
+
+  .text {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
