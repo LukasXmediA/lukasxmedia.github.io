@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pointsField = document.getElementById("pointsField");
 
-  // 15 kleine Punkte zufällig platzieren
+  // 15 kleine Punkte
   for (let i = 0; i < 15; i++) {
     const point = document.createElement("div");
     point.classList.add("point", "small");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pointsField.appendChild(point);
   }
 
-  // 3 Social Punkte
+  // 3 Social Media Punkte
   const socials = [
     { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
     { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.left = `${Math.random() * 90}%`;
   }
 
-  // Wort für Wort Animation
+  // Wort für Wort Textanimation
   document.querySelectorAll(".fade-text").forEach(section => {
     const text = section.textContent.trim();
     section.textContent = "";
@@ -55,24 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll("span").forEach((span, i) => {
-            setTimeout(() => span.classList.add("active"), i * 100);
-          });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll("span").forEach((span, i) => {
+          setTimeout(() => span.classList.add("active"), i * 100);
+        });
 
-          const image = entry.target.getAttribute("data-image");
-          if (image) {
-            imagePoint.classList.add("active");
-            imagePoint.style.backgroundImage = `url('${image}')`;
-          }
+        const image = entry.target.getAttribute("data-image");
+        if (image) {
+          imagePoint.classList.add("active");
+          imagePoint.style.backgroundImage = `url('${image}')`;
         }
-      });
-    },
-    { threshold: 0.5 }
-  );
+      }
+    });
+  }, { threshold: 0.5 });
 
   document.querySelectorAll(".fade-text").forEach(el => observer.observe(el));
 });
