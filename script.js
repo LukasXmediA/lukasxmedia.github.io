@@ -1,13 +1,47 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const fadeItems = document.querySelectorAll(".fade-in-on-scroll, .timeline-item");
+document.addEventListener('DOMContentLoaded', () => {
+  // Wort für Wort Animation
+  document.querySelectorAll('.fade-text').forEach(section => {
+    const text = section.textContent.trim();
+    section.textContent = '';
+    text.split(' ').forEach(word => {
+      const span = document.createElement('span');
+      span.textContent = word + ' ';
+      section.appendChild(span);
+    });
+  });
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+        entry.target.querySelectorAll('span').forEach((span, i) => {
+          setTimeout(() => span.classList.add('active'), i * 100);
+        });
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.5 });
 
-  fadeItems.forEach(item => observer.observe(item));
+  document.querySelectorAll('.fade-text').forEach(el => observer.observe(el));
+
+  // Social Media Links klickbar
+  document.querySelectorAll('.dot.social').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const link = dot.getAttribute('data-link');
+      window.open(link, '_blank');
+    });
+  });
+
+  // Bild im Punkt anzeigen (nur wenn Bild vorhanden)
+  const imgDot = document.getElementById('image-dot');
+  const imgSection = document.querySelector('.image-section img');
+  if (imgDot && imgSection) {
+    const imgObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          imgDot.classList.add('active');
+          imgDot.style.backgroundImage = `url('${imgSection.src}')`;
+        }
+      });
+    }, { threshold: 0.5 });
+    imgObserver.observe(imgSection);
+  }
 });
