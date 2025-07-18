@@ -1,74 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll('.section');
+  const pointsField = document.getElementById("pointsField");
 
-  sections.forEach(section => {
-    const pointsField = section.querySelector('.points-field');
+  for (let i = 0; i < 15; i++) {
+    createPoint('small');
+  }
 
-    for (let i = 0; i < 15; i++) {
-      const point = document.createElement("div");
-      point.classList.add("point", "small");
-      randomizePosition(point);
-      pointsField.appendChild(point);
-    }
+  const socials = [
+    { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
+    { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
+    { icon: "fab fa-twitch", link: "https://www.twitch.tv/lukasxmedia1" }
+  ];
 
-    const socials = [
-      { icon: "fab fa-instagram", link: "https://www.instagram.com/lukasxmedia" },
-      { icon: "fab fa-youtube", link: "https://www.youtube.com/@LukasXmediA" },
-      { icon: "fab fa-twitch", link: "https://www.twitch.tv/lukasxmedia1" }
-    ];
+  socials.forEach(s => createSocialPoint(s.icon, s.link));
 
-    socials.forEach(social => {
-      const point = document.createElement("div");
-      point.classList.add("point", "social");
-      point.innerHTML = `<i class="${social.icon}"></i>`;
-      randomizePosition(point);
-      point.addEventListener("click", () => window.open(social.link, "_blank"));
-      pointsField.appendChild(point);
-    });
+  const imagePoint = createPoint('image-point');
 
-    const imagePoint = document.createElement("div");
-    imagePoint.classList.add("point", "image-point");
-    randomizePosition(imagePoint);
-    pointsField.appendChild(imagePoint);
+  function createPoint(type) {
+    const p = document.createElement('div');
+    p.classList.add('point', type);
+    randomizePosition(p);
+    pointsField.appendChild(p);
+    return p;
+  }
 
-    const neutralPoint = document.createElement("div");
-    neutralPoint.classList.add("point", "neutral");
-    randomizePosition(neutralPoint);
-    pointsField.appendChild(neutralPoint);
-
-    // Text Wort für Wort animieren
-    const textEl = section.querySelector('.fade-text');
-    const text = textEl.textContent.trim();
-    textEl.textContent = "";
-    const spans = text.split(" ").map(word => {
-      const span = document.createElement("span");
-      span.textContent = word + " ";
-      textEl.appendChild(span);
-      return span;
-    });
-
-    // Scroll-Steuerung
-    let currentWord = 0;
-    window.addEventListener("wheel", e => {
-      e.preventDefault();
-      if (currentWord < spans.length) {
-        spans[currentWord].classList.add('active');
-        currentWord++;
-        if (currentWord === spans.length) {
-          const imgSrc = section.getAttribute('data-image');
-          if (imgSrc) {
-            imagePoint.classList.add('active');
-            imagePoint.style.backgroundImage = `url('${imgSrc}')`;
-          }
-        }
-      } else {
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-      }
-    }, { passive: false });
-  });
+  function createSocialPoint(icon, link) {
+    const p = createPoint('social');
+    p.innerHTML = `<i class="${icon}"></i>`;
+    p.addEventListener('click', () => window.open(link, '_blank'));
+  }
 
   function randomizePosition(el) {
     el.style.top = `${Math.random() * 90}%`;
     el.style.left = `${Math.random() * 90}%`;
+  }
+
+  // Scrollsteuerung für Wort-für-Wort und Sperre
+  const sections = document.querySelectorAll('.content-section');
+  let currentSection = 0;
+  let currentWord = 0;
+  let words = [];
+
+  prepareSection(sections[currentSection]);
+
+  window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (currentWord < words.length) {
+      words[currentWord].classList.add('active');
+      currentWord++;
+
+      if (currentWord === words.length) {
+        const img = sections[currentSection].getAttribute('data-image');
+        if (img) {
+          imagePoint.classList.add('active');
+          imagePoint.style.backgroundImage = `url('${img}')`;
+        }
+      }
+    } else if (currentSection < sections.length -1) {
+      currentSection++;
+      prepareSection(sections[currentSection]);
+    }
+  }, { passive: false });
+
+  function prepareSection(section) {
+    const textEl = section.querySelector('.fade-text');
+    const text = textEl.textContent.trim();
+    textEl.textContent = '';
+    words = text.split(' ').map(word => {
+      const span = document.createElement('span');
+      span.textContent = word + ' ';
+      textEl.appendChild(span);
+      return span;
+    });
+    currentWord = 0;
   }
 });
