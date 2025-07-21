@@ -23,14 +23,10 @@
   <main>
     <section>
       <h2>Über Mich</h2>
-      <p>Ich bin Lukas, besser bekannt als LukasXmediA.
-Schon seit vielen Jahren begeistert mich die Welt des Gamings – besonders faszinieren mich Simulatoren, bei denen ich in realitätsnahe Rollen schlüpfen kann, sowie Story Games, die mich mit ihren spannenden Handlungen und beeindruckenden Welten fesseln.
-
-Neben dem Gaming schlägt mein Herz auch für alles rund um Technik. Ich liebe es, neue Geräte auszuprobieren, an meinem Setup zu feilen und mich mit der neuesten Hardware auseinanderzusetzen.
-
-Ein weiterer wichtiger Teil meines Lebens ist das Schlagzeugspielen, das ich seit 2020 mit großer Leidenschaft betreibe. Egal ob alleine, im Orchester oder in einer Band – die Drums sind für mich der perfekte Ausgleich zum Alltag.
-
-Und wenn ich gerade nicht zocke oder musiziere, stehe ich gerne auf dem Handballfeld. Dieser schnelle und dynamische Teamsport fordert mich heraus und hält mich fit.</p>
+      <p>Hey! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
+      Ich liebe Gaming, besonders Simulatoren und Story Games.<br>
+      Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+      Wir sehen uns dann mal vielleicht in nem Stream, bis dann!</p>
     </section>
 
     <section>
@@ -40,25 +36,43 @@ Und wenn ich gerade nicht zocke oder musiziere, stehe ich gerne auf dem Handball
     <section>
       <h2>Meine Geschichte</h2>
       <div class="timeline">
-        <div class="timeline-item"><strong>2020:</strong> Die Geburtsstunde des Namens „LukasXmediA“. Eine kreative Idee, die den Grundstein für alles legte.</div>
-        <div class="timeline-item"><strong>2021:</strong> Erste eigene Videoaufnahmen entstehen – noch privat, aber voller Leidenschaft und Experimentierfreude.</div>
-        <div class="timeline-item"><strong>2022:</strong> Ich designe mein erstes eigenes Logo – der erste Schritt zu einer echten Marke!</div>
-        <div class="timeline-item"><strong>2023:</strong> Meine erste Begegnung mit der Programmierung – durch einen Python-Kurs eröffnen sich mir neue kreative Möglichkeiten.</div>
-        <div class="timeline-item"><strong>2024:</strong> Mit meinem ersten eigenen PC erlerne ich Videoschnitt und entdecke die Möglichkeiten, Inhalte spannend und professionell zu gestalten.</div>
-        <div class="timeline-item"><strong>Februar 2025:</strong> Der Twitch-Kanal „LukasXmediA“ startet und ich beginne live zu streamen!</div>
-        <div class="timeline-item"><strong>März 2025:</strong> Ich starte meinen Instagram-Account „LukasXmediA“, um Einblicke hinter die Kulissen zu geben.</div>
-        <div class="timeline-item"><strong>April 2025:</strong> Mein YouTube-Kanal geht online – Tutorials, Projekte und vieles mehr!</div>
-        <div class="timeline-item"><strong>Juli 2025:</strong> Mein finales Logo ist geboren – es repräsentiert alles, wofür LukasXmediA steht.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>2020:</strong> Die Geburtsstunde des Namens „LukasXmediA“. Eine kreative Idee, die den Grundstein für alles legte.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>2021:</strong> Erste eigene Videoaufnahmen entstehen – noch privat, aber voller Leidenschaft und Experimentierfreude.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>2022:</strong> Ich designe mein erstes eigenes Logo – der erste Schritt zu einer echten Marke!</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>2023:</strong> Meine erste Begegnung mit der Programmierung – durch einen Python-Kurs eröffnen sich mir neue kreative Möglichkeiten.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>2024:</strong> Mit meinem ersten eigenen PC erlerne ich Videoschnitt und entdecke die Möglichkeiten, Inhalte spannend und professionell zu gestalten.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>Februar 2025:</strong> Der Twitch-Kanal „LukasXmediA“ startet und ich beginne live zu streamen!</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>März 2025:</strong> Ich starte meinen Instagram-Account „LukasXmediA“, um Einblicke hinter die Kulissen zu geben.</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>April 2025:</strong> Mein YouTube-Kanal geht online – Tutorials, Projekte und vieles mehr!</div>
+        <div class="timeline-item fade-in-on-scroll"><strong>Juli 2025:</strong> Mein finales Logo ist geboren – es repräsentiert alles, wofür LukasXmediA steht.</div>
       </div>
     </section>
   </main>
 
   <div class="social-bar">
-    <a href="https://www.instagram.com/lukasxmedia" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/lukasxmedia?igsh=MWt3ZTdiMXlpeXdtdQ%3D%3D&utm_source=qr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://www.twitch.tv/lukasxmedia1" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
     <a href="https://www.youtube.com/@LukasXmediA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
   </div>
 
-  <footer>©LukasXmediA™</footer>
+  <footer>
+    ©LukasXmediA™
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".fade-in-on-scroll");
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1 });
+
+      items.forEach(item => observer.observe(item));
+    });
+  </script>
 </body>
 </html>
