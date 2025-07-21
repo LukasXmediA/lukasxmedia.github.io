@@ -1,124 +1,70 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  background: black;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
   color: grey;
-  overflow: hidden; /* Scroll über JS */
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  color: white;
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-nav a:hover {
-  color: #39ff14;
-}
-
-#container {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.section {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
-
-.text {
-  width: 50%;
-  padding: 40px;
-  font-size: 1.3rem;
-  line-height: 1.6;
-  text-align: left;
-  color: grey;
-  user-select: text;
-  transition: color 0.4s ease;
-}
-
-.text.active {
-  color: white;
-}
-
-.points {
-  width: 50%;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 40px;
-  justify-content: flex-start;
-  align-content: flex-start;
-}
-
-.point {
-  background: white;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-}
-
-/* Social Media Punkte größer */
-.point.social {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+header nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
+  background-color: #1a1a1a;
+  padding: 10px;
 }
 
-.point.social i {
-  color: grey;
-  font-size: 28px;
-  transition: color 0.3s ease;
-}
-
-.point.social:hover i {
+header nav a {
   color: white;
+  text-decoration: none;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .section {
-    flex-direction: column;
-  }
+.home-logo {
+  width: 25px;
+  height: 25px;
+}
 
-  .text,
-  .points {
-    width: 100%;
-    padding: 20px;
-  }
+main {
+  padding: 40px;
+  max-width: 600px;
+}
 
-  .points {
-    gap: 8px;
-  }
+h1, h2 {
+  color: #39FF14;
+}
 
-  .point.social {
-    width: 30px;
-    height: 30px;
-  }
+.dots-background {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 15px;
+}
 
-  .point.social i {
-    font-size: 22px;
-  }
+.dot {
+  background: white;
+  border-radius: 50%;
+}
+
+.dot.small { width: 10px; height: 10px; }
+.dot.medium { width: 20px; height: 20px; }
+.dot.big { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; }
+
+.dot a {
+  color: #121212;
+  font-size: 1rem;
+}
+
+.fade-text {
+  color: grey;
+  transition: color 0.6s;
+}
+
+.fade-text.visible {
+  color: white;
 }
