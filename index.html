@@ -1,50 +1,46 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LukasXmediA</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>LukasXmediA</h1>
     <nav>
-      <a href="index.html">Home</a>
       <a href="ueber-mich.html">Über Mich</a>
+      <a href="index.html"><img src="AD12CF2C-BAE9-4359-B18A-2A3FB9CBBB79.jpeg" alt="Home" class="home-logo"></a>
       <a href="skills.html">Skills</a>
     </nav>
   </header>
 
-  <div id="container">
-    <section class="section" data-image="IMG_9793.jpeg">
-      <div class="text">
-        Hi! Ich bin Lukas, auch bekannt als LukasXmediA. Ich liebe Gaming,
-        besonders Simulatoren und Story Games. Nebenbei interessiere ich mich
-        für Technik, Schlagzeug und Handball. Wir sehen uns dann mal vielleicht in
-        nem Stream, Video oder Reel!
-      </div>
-      <div class="points">
-        <!-- Punkte werden hier via JS eingefügt -->
-      </div>
+  <main>
+    <section class="content-section">
+      <h1 class="fade-text">LukasXmediA</h1>
+      <p class="fade-text">Hi! Ich bin Lukas, auch bekannt als LukasXmediA.<br>
+      Ich liebe Gaming, besonders Simulatoren und Story Games.<br>
+      Nebenbei interessiere ich mich für Technik, Schlagzeug und Handball.<br>
+      Wir sehen uns dann mal vielleicht in nem Stream, Video oder Reel, bis dann!</p>
     </section>
+  </main>
 
-    <section class="section">
-      <div class="text">
-        Als Creator teile ich meine Leidenschaft für Gaming, Technik,
-        Fotografie, Drums und DJing. Ob auf YouTube, Twitch oder Instagram –
-        ich möchte kreativ sein, unterhalten und meine Projekte mit der Welt
-        teilen.
-      </div>
-      <div class="points">
-        <!-- Punkte hier auch -->
-      </div>
-    </section>
+  <div class="dots-background">
+    <!-- Punkte + Social Media Icons integriert -->
+    <div class="dot big"><a href="https://www.instagram.com/lukasxmedia" target="_blank"><i class="fab fa-instagram"></i></a></div>
+    <div class="dot big"><a href="https://www.youtube.com/@LukasXmediA" target="_blank"><i class="fab fa-youtube"></i></a></div>
+    <div class="dot big"><a href="https://www.twitch.tv/lukasxmedia1" target="_blank"><i class="fab fa-twitch"></i></a></div>
+    <!-- Restliche Punkte -->
+    <div class="dot small"></div>
+    <div class="dot medium"></div>
+    <div class="dot small"></div>
+    <div class="dot medium"></div>
+    <div class="dot small"></div>
+    <div class="dot medium"></div>
+    <div class="dot small"></div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
