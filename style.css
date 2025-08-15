@@ -1,81 +1,161 @@
+/* ------------------------------
+   Variablen
+------------------------------ */
 :root {
-  --accent: #39FF14;
-  --bg: #121212;
-  --card-bg: rgba(255,255,255,0.03);
-  --hover-glow: 0 0 10px var(--accent);
+  --color-bg: #F5F5F5;
+  --color-text: #1A1A1A;
+  --color-accent: #007A33;
+  --color-highlight: #FFCC00;
+  --color-header-bg: rgba(255, 255, 255, 0.9);
+  --color-border: #e0e0e0;
+  --max-width: 1100px;
 }
 
+/* ------------------------------
+   Allgemeines
+------------------------------ */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color: #f0f0f0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
+/* ------------------------------
+   Header / Navigation
+------------------------------ */
 header {
-  background: linear-gradient(to right, #1a1a1a, #2c2c2c);
-  padding: 20px;
-  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-header-bg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin: 0;
 }
 
 header h1 a {
-  color: var(--accent);
   text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: var(--accent);
   text-decoration: none;
-  margin: 0 10px;
+  color: var(--color-text);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-img.header-image {
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+nav a:hover::after {
   width: 100%;
-  max-height: 300px;
+}
+
+/* Social Icons in Header */
+header .social-icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+header .social-icons a {
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+header .social-icons a:hover {
+  color: var(--color-accent);
+}
+
+/* ------------------------------
+   Banner
+------------------------------ */
+.header-image {
+  width: 100%;
+  max-height: 350px;
   object-fit: cover;
+  margin-top: 68px; /* Platz für fixe Navigation */
 }
 
-img.content-image {
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-}
-
+/* ------------------------------
+   Hauptinhalt
+------------------------------ */
 main {
-  max-width: 1100px;
+  max-width: var(--max-width);
   margin: auto;
   padding: 20px;
 }
 
 section {
-  background: var(--card-bg);
-  margin: 40px 0;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  margin: 50px 0;
   padding: 30px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
 }
 
+section img.content-image,
+.skills-image {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+/* ------------------------------
+   Überschriften
+------------------------------ */
 h2 {
-  color: var(--accent);
+  color: var(--color-accent);
+  margin-top: 0;
 }
 
-footer {
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
-  background-color: #1a1a1a;
-  color: #666;
+h3 {
+  margin-top: 1.5rem;
 }
 
-/* Timeline */
+/* ------------------------------
+   Timeline
+------------------------------ */
 .timeline {
   position: relative;
   margin: 50px 0;
   padding-left: 20px;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--color-accent);
 }
 
 .timeline-item {
@@ -90,44 +170,30 @@ footer {
   transform: translateY(0);
 }
 
-.skills-image {
-  width: 50%;
-  max-width: 150px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+/* ------------------------------
+   Footer
+------------------------------ */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  background-color: #fff;
+  color: #666;
+  border-top: 1px solid var(--color-border);
 }
 
-/* Social Bar */
-.social-bar {
-  position: fixed;
-  left: 10px;
-  bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
-}
-
-.social-bar a {
-  color: var(--accent);
-  font-size: 1.6rem;
-  transition: transform 0.3s ease;
-}
-
-.social-bar a:hover {
-  transform: scale(1.3);
-}
-
-/* Fade-In Effekt */
-.fade-in-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ------------------------------
+   Responsives Design
+------------------------------ */
+@media (max-width: 768px) {
+  nav {
+    display: none; /* Mobile-Navigation später evtl. als Burger-Menü */
+  }
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header-image {
+    margin-top: 100px;
+  }
 }
