@@ -8,7 +8,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg);
-  color: #f0f0f0;
+  color: #1A1A1A;
   scroll-behavior: smooth;
 }
 
